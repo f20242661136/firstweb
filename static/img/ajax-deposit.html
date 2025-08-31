@@ -1,0 +1,64 @@
+
+<div class="row">
+    <div class="col-12">
+        <h4 class="text-center">Select Method</h4>
+    </div>
+            <div class="col-4 mb-2">
+            <div class="gatewayItem text-center" data-id="35" data-name=""
+                data-charge="0.00000000" data-rate="1.00000000"
+                data-min_limit="500.00000000" data-max_limit="250000.00000000"
+                data-curr="pkr">
+                <img src="https://life-change-earn.com/asset/theme3/images/gateways/67695162c1a131734955362.jpg" alt="Lights" class="trans-img">
+            </div>
+        </div>
+            <div class="col-4 mb-2">
+            <div class="gatewayItem text-center" data-id="34" data-name=""
+                data-charge="0.00000000" data-rate="1.00000000"
+                data-min_limit="500.00000000" data-max_limit="250000.00000000"
+                data-curr="pkr">
+                <img src="https://life-change-earn.com/asset/theme3/images/gateways/6713ffc26eed21729363906.png" alt="Lights" class="trans-img">
+            </div>
+        </div>
+            <div class="col-4 mb-2">
+            <div class="gatewayItem text-center" data-id="31" data-name=""
+                data-charge="0.00000000" data-rate="1.00000000"
+                data-min_limit="250.00000000" data-max_limit="250000.00000000"
+                data-curr="pkr">
+                <img src="https://life-change-earn.com/asset/theme3/images/gateways/6713fe4f240231729363535.png" alt="Lights" class="trans-img">
+            </div>
+        </div>
+    </div>
+
+<ul id="detailPreview" class="listview simple-listview inset mb-3 d-none">
+    <li>1 PKR: <span id="rateView"></span></li>
+    <li>Charge: <span id="chargeView"></span></li>
+    <li>Min Limit: <span id="minView"></span></li>
+    <li>Max Limit: <span id="maxView"></span></li>
+</ul>
+<form id="paynowForm" action="https://life-change-earn.com/ajax-paynow" method="post">
+    <input type="hidden" name="_token" value="HpFwZ7uPZC96OG74FHDRzljXKAcUG4ZwrAMOf0Mi">    <div class="row align-items-center">
+        <div class="col pe-0">
+            <input type="hidden" name="id" id="methodID" value="">
+            <input type="number" class="form-control" placeholder="Enter Amount" name="amount" required>
+            <input type="hidden" name="user_id" class="form-control" value="3753">
+            <input type="hidden" name="type" class="form-control" value="deposit">
+        </div>
+        <div class="col-auto">
+            <div class="after-append">
+                PKR
+            </div>
+        </div>
+    </div>
+
+    <div class="my-3">
+        <button type="submit" class="btn btn-primary btn-lg gr-bg-blue w-100" id="amountSubmitBtn">Next Step</button>
+    </div>
+</form>
+
+
+
+
+
+
+
+

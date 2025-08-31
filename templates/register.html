@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/icon.jpg') }}">
+    <title>Life Change Earn - Register User</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awsome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/color.css') }}"> -->
+
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0c718a 30%, #b5e6f9 100%), url("{{ url_for('static', filename='img/QULMdli.jpeg') }}") no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.22);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 1.25rem;
+            padding: 2.5rem 2rem 2rem 2rem;
+            max-width: 400px;
+            margin: 3rem auto 2rem auto;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #19577a !important;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            border-radius: 0.75rem !important;
+            border: 1px solid #3bbcdf;
+            background-color: #f8fafc;
+            color: #0c819e !important;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: #0c819e !important;
+            box-shadow: 0 0 7px 1px #3bbcdf3a;
+            background-color: #fff;
+        }
+
+        .btn-primary,
+        .login-btn {
+            background: linear-gradient(90deg, #0c718a 60%, #00c6fb 100%) !important;
+            color: #fff;
+            border: none;
+            box-shadow: 0 2px 12px 0 #0c718a2a;
+            border-radius: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover,
+        .login-btn:hover {
+            background: linear-gradient(45deg, #00c6fb 60%, #0c718a 100%) !important;
+            color: #fff;
+        }
+
+        .input-wrapper {
+            margin-bottom: 1.25rem;
+        }
+
+        .login-area img {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Loader */
+        .custom_preload {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.65);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loaderCustom {
+            width: 48px;
+            height: 48px;
+        }
+
+        @media (max-width: 500px) {
+            .glass-panel {
+                padding: 1.25rem 0.75rem;
+                margin: 1.25rem auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Flash Messages -->
+    <div class="flash-messages-container" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10000; width: 90%; max-width: 500px;">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Preloader -->
+    <div id="preLoadCustom" class="d-none">
+        <div class="custom_preload">
+            <img class="loaderCustom" src="{{ url_for('static', filename='img/loading-ios.webp') }}" alt="Loading...">
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="text-center mt-4">
+                <h2 class="text-cyan-600 font-bold text-3xl">Life Change Earn</h2>
+            </div>
+            <div class="glass-panel mt-4">
+                <div class="login-area">
+                    <div class="flex justify-center mb-3">
+                        <img width="100px" src="https://cdn-icons-png.flaticon.com/256/8662/8662284.png" alt="User Icon" class="rounded-full shadow">
+                    </div>
+                    
+                    <form class="action-form loginForm" id="registerForm" action="{{ url_for('auth.register') }}" method="post" autocomplete="off">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        
+                        <div class="form-group input-wrapper">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" placeholder="Enter Username" class="form-control" required>
+                            <small class="usernameCheck text-danger"></small>
+                        </div>
+                        
+                        <div class="form-group input-wrapper">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" placeholder="Enter Email" class="form-control" required>
+                            <small class="emailCheck text-danger"></small>
+                        </div>
+                        
+                        <div class="form-group input-wrapper">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" name="phone" id="phone" placeholder="Enter Phone Number" class="form-control" required maxlength="15">
+                            <small class="phoneCheck text-danger"></small>
+                        </div>
+                        
+                        <div class="form-group input-wrapper">
+                            <label for="reffer">Referrer (optional)</label>
+                            <input type="text" name="reffer" id="reffer" placeholder="Enter Referrer (if any)" class="form-control">
+                            <small class="refferCheck text-danger"></small>
+                        </div>
+                        
+                        <div class="form-group input-wrapper">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" placeholder="Enter Password" class="form-control" required minlength="6">
+                        </div>
+                        
+                        <button type="submit" class="btn login-btn w-100 mt-2" id="registerSubmitBtn">Sign Up</button>
+                        
+                        <div class="flex gap-2 justify-center items-center mt-4">
+                            <span class="text-muted">Already have an account?</span>
+                            <a class="text-cyan-600 font-semibold" href="{{ url_for('auth.login') }}">Login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JS Libraries -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+
+    <script>
+        // Notify function
+        function notifyMsg(msg, type = 'info') {
+            // Create a simple notification instead of SweetAlert
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type} alert-dismissible fade show`;
+            notification.innerHTML = `
+                ${msg}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            document.querySelector('.flash-messages-container').appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+
+        // Username check
+        $(document).on('blur', '#username', function () {
+            let username = $(this).val().trim();
+            if (!username) return;
+            
+            $.ajax({
+                type: "POST",
+                url: "{{ url_for('auth.check_username') }}",
+                data: JSON.stringify({
+                    username: username,
+                    csrf_token: "{{ csrf_token() }}"
+                }),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (res) {
+                    $('.usernameCheck').html(res.status === 'exists' ? 'Username already exists!' : '');
+                }
+            });
+        });
+        
+        // Email check
+        $(document).on('blur', '#email', function () {
+            let email = $(this).val().trim();
+            if (!email) return;
+            
+            $.ajax({
+                type: "POST",
+                url: "{{ url_for('auth.check_email') }}",
+                data: JSON.stringify({
+                    email: email,
+                    csrf_token: "{{ csrf_token() }}"
+                }),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (res) {
+                    $('.emailCheck').html(res.status === 'exists' ? 'Email already exists!' : '');
+                }
+            });
+        });
+        
+        // Referrer check
+        $(document).on('keyup', '#reffer', function () {
+            let reffer = $(this).val().trim();
+            if (!reffer) return $('.refferCheck').html('');
+            
+            $.ajax({
+                type: "POST",
+                url: "{{ url_for('auth.check_referrer') }}",
+                data: JSON.stringify({
+                    reffer: reffer,
+                    csrf_token: "{{ csrf_token() }}"
+                }),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (res) {
+                    $('.refferCheck').removeClass('text-danger text-success')
+                        .addClass(res.status === 'valid' ? 'text-success' : 'text-danger')
+                        .html(res.message);
+                }
+            });
+        });
+
+        // Registration form submission
+        $(document).on('submit', '#registerForm', function (e) {
+            e.preventDefault();
+            
+            // Basic validation
+            const password = $('#password').val();
+            if (password.length < 6) {
+                notifyMsg('Password must be at least 6 characters long', 'danger');
+                return;
+            }
+            
+            // Show loader
+            $('#preLoadCustom').removeClass('d-none');
+            $('#registerSubmitBtn').prop('disabled', true).html('Creating Account...');
+            
+            // Get form data
+            const formData = $(this).serialize();
+            
+            // Submit via AJAX
+            $.ajax({
+                type: "POST",
+                url: "{{ url_for('auth.register') }}",
+                data: formData,
+                success: function (response) {
+                    $('#preLoadCustom').addClass('d-none');
+                    $('#registerSubmitBtn').prop('disabled', false).html('Sign Up');
+                    
+                    if (response.status === 'success') {
+                        notifyMsg(response.message, 'success');
+                        // Redirect to login page after successful registration
+                        setTimeout(() => {
+                            window.location.href = "{{ url_for('auth.login') }}";
+                        }, 2000);
+                    } else {
+                        notifyMsg(response.message, 'danger');
+                    }
+                },
+                error: function (xhr) {
+                    $('#preLoadCustom').addClass('d-none');
+                    $('#registerSubmitBtn').prop('disabled', false).html('Sign Up');
+                    
+                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                        notifyMsg(xhr.responseJSON.message, 'danger');
+                    } else {
+                        notifyMsg('Registration failed. Please try again.', 'danger');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Change Earn - Fixed Components</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #0cb7bd;
+            --primary-dark: #198787;
+            --primary-light: #37ebec;
+            --secondary-color: #ff396f;
+            --accent-color: #64b5f6;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --bg-light: #f8f9fa;
+            --card-shadow: 0 8px 20px rgba(12, 183, 189, 0.15);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .dashboard-main {
+            background: transparent;
+        }
+
+        .appHeader {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .appBottomMenu {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%) !important;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .appBottomMenu .item {
+            padding: 8px 5px;
+        }
+
+        .appBottomMenu .item strong {
+            margin-top: 4px;
+            display: block;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 12px;
+        }
+
+        .appBottomMenu .item img {
+            transition: var(--transition);
+        }
+
+        .appBottomMenu .item:hover img {
+            transform: translateY(-3px);
+        }
+
+        .dashboard-login-btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-light) !important;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            border-radius: 50px;
+            box-shadow: 0 6px 15px rgba(12, 183, 189, 0.4);
+            transition: var(--transition);
+            width: 280px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .dashboard-login-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .dashboard-login-btn:hover:before {
+            opacity: 1;
+        }
+
+        .dashboard-login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(12, 183, 189, 0.6);
+        }
+
+        /* Card Styles */
+        .card, .bg-white {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-radius: 16px !important;
+            border: none;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            margin-bottom: 20px;
+        }
+
+        .card:hover, .bg-white:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(12, 183, 189, 0.2);
+        }
+
+        /* Icon Cards */
+        .icon-card {
+            padding: 15px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .icon-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .icon-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .icon-card span {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 14px;
+        }
+
+        /* Form Elements */
+        .form-control {
+            border-radius: 50px;
+            padding: 10px 20px;
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(12, 183, 189, 0.25);
+        }
+
+        .select {
+            height: 45px;
+            padding: 0 15px;
+            border-radius: 50px;
+            border: 1px solid #e2e8f0;
+            width: 100%;
+        }
+
+        .btn {
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(12, 183, 189, 0.4);
+        }
+
+        /* Text Colors */
+        .text-cyan-500, .text-cyan-800 {
+            color: var(--primary-dark) !important;
+        }
+
+        /* Work Items */
+        .work-item {
+            padding: 20px;
+            text-align: center;
+            height: 100%;
+        }
+
+        .work-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+            font-size: 20px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            color: var(--text-light);
+        }
+
+        /* Referral System */
+        .referral-wrapper {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .referral-item {
+            text-align: center;
+            margin: 10px;
+            flex: 1;
+            min-width: 100px;
+        }
+
+        .referral-item img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .referral-amount {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+
+        .referral-caption {
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        /* Video Player */
+        video {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            width: 100%;
+        }
+
+        /* Marquee */
+        marquee {
+            padding: 5px 0;
+        }
+
+        /* Modal Styles */
+        .modal-content {
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            color: var(--text-light);
+        }
+
+        .close {
+            color: var(--text-light);
+            opacity: 1;
+        }
+
+        /* Loader */
+        #loader {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+        }
+
+        /* Fix for image filters */
+        .img-primary {
+            filter: brightness(0) saturate(100%) invert(57%) sepia(26%) saturate(3596%) hue-rotate(141deg) brightness(95%) contrast(91%);
+        }
+        
+        .img-white {
+            filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(267deg) brightness(103%) contrast(103%);
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        /* Testimonial Carousel Styles */
+        .testimonial-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            margin: 20px auto;
+        }
+        
+        .testimonial-title {
+            text-align: center;
+            color: #198787;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        
+        .testimonial-carousel {
+            position: relative;
+            overflow: hidden;
+            height: 320px;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .testimonial-content {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(12, 183, 189, 0.15);
+            text-align: center;
+            position: relative;
+            margin-bottom: 25px;
+        }
+        
+        .testimonial-content:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 15px 15px 0;
+            border-style: solid;
+            border-color: white transparent transparent;
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial-rating {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #0cb7bd;
+            margin-bottom: 15px;
+        }
+        
+        .author-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #198787;
+            margin-bottom: 5px;
+        }
+        
+        .author-title {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+        
+        .carousel-btn {
+            background: #0cb7bd;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(12, 183, 189, 0.3);
+        }
+        
+        .carousel-btn:hover {
+            background: #198787;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(12, 183, 189, 0.4);
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #c4e7e8;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background: #0cb7bd;
+            transform: scale(1.2);
+        }
+        
+        /* Sidebar Panel */
+        .sidebarPanel {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sidebarPanel.open {
+            left: 0;
+        }
+        
+        .sidebarHeader {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .sidebarHeader .close-sidebar {
+            color: white;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .sidebarMenu {
+            padding: 20px;
+        }
+        
+        .sidebarMenu .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 10px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .sidebarMenu .menu-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            padding-left: 15px;
+        }
+        
+        .sidebarMenu .menu-item i {
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .dashboard-login-btn {
+                width: 90%;
+                max-width: 280px;
+            }
+            
+            .referral-wrapper {
+                flex-direction: column;
+            }
+            
+            .icon-card {
+                padding: 10px;
+            }
+            
+            .testimonial-container {
+                padding: 25px;
+            }
+            
+            .testimonial-title {
+                font-size: 1.8rem;
+            }
+            
+            .testimonial-carousel {
+                height: 380px;
+            }
+            
+            .testimonial-content {
+                padding: 20px;
+            }
+            
+            .testimonial-text {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .testimonial-container {
+                padding: 20px;
+            }
+            
+            .testimonial-title {
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+            }
+            
+            .testimonial-carousel {
+                height: 420px;
+            }
+            
+            .testimonial-content {
+                padding: 15px;
+            }
+            
+            .carousel-btn {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .sidebarPanel {
+                width: 280px;
+                left: -280px;
+            }
+        }
+        
+        /* Profit Calculator Result Modal */
+        #calculationModal .modal-content {
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        #calculationModal .modal-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            color: white;
+        }
+        
+        #calculationModal .modal-body {
+            padding: 20px;
+        }
+        
+        .profit-result {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .profit-amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            margin: 15px 0;
+        }
+        
+        .profit-details {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .profit-details .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .profit-details .detail-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Referral section improvements */
+        .referral-section {
+            padding: 20px;
+        }
+        
+        .referral-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+        
+        .referral-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .referral-icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .referral-title {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+        
+        .referral-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        .referral-link-box {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .referral-link {
+            flex: 1;
+            padding: 10px;
+            background: white;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            margin-right: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .copy-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay for sidebar -->
+    <div class="overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar Panel -->
+    <div class="sidebarPanel" id="sidebarPanel">
+        <div class="sidebarHeader">
+            <h3 class="text-white mb-0">Menu</h3>
+            <button class="close-sidebar" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebarMenu">
+            <a href="" class="menu-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="/dashboard" class="menu-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="/transaction/log" class="menu-item">
+                <i class="fas fa-exchange-alt"></i>
+                <span>Transactions</span>
+            </a>
+            <a href="/investmentplan" class="menu-item">
+                <i class="fas fa-coins"></i>
+                <span>Investment Plans</span>
+            </a>
+            <a href="/ads-list" class="menu-item">
+                <i class="fas fa-tasks"></i>
+                <span>Tasks</span>
+            </a>
+            <a href="javascript:void(0)" class="menu-item withdrawAction">
+                <i class="fas fa-money-bill-wave"></i>
+                <span>Withdraw</span>
+            </a>
+            <a href="/logout" class="menu-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Log out</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- App Header -->
+        <div class="appHeader">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <button class="btn btn-sm btn-light" id="openSidebar">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                <div class="text-center">
+                    <h2 class="text-white mb-0">Life Change Earn</h2>
+                </div>
+                <div>
+                    <img src="https://img.freepik.com/premium-photo/memoji-happy-man-white-background-emoji_826801-6838.jpg" 
+                         alt="Profile" class="rounded-circle" width="40" height="40">
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section with Video -->
+        <div class="card">
+            <video autoplay loop playsinline muted style="border-radius: 16px;" 
+                poster="https://cdn.pixabay.com/video/2016/09/21/5434-183788521_tiny.jpg">
+                <source src="https://cdn.pixabay.com/video/2016/09/21/5434-183788521_medium.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Scroling Notice -->
+        <div class="card mt-3">
+            <div class="card-body py-2">
+                <div class="d-flex align-items-center">
+                    <img class="me-2" src="https://cdn-icons-png.flaticon.com/128/3039/3039488.png" width="30" alt="">
+                    <marquee behavior="scroll" direction="left">
+                        <span class="text-primary">
+                            Welcome to life change earn, your trusted partner in navigating the world of investments. 
+                            Our platform is designed to offer you cutting-edge insights and tools to help you make smart and confident financial decisions.
+                        </span>
+                    </marquee>
+                </div>
+            </div>
+        </div>
+
+        <!-- Icon Cards -->
+        <div class="row mt-4">
+            <div class="col-6 col-md-3 mb-3">
+                <a href="https://b4u-earn-trade.pro/app-apk-B4UEarn-trade.apk" class="text-decoration-none">
+                    <div class="card icon-card h-100">
+                        <img src="https://cdn-icons-png.flaticon.com/128/12607/12607707.png" alt="">
+                        <span>Apps</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 mb-3">
+                <a href="https://whatsapp.com/channel/0029Vb6Ipda65yDHvd0rxV2N" class="text-decoration-none">
+                    <div class="card icon-card h-100">
+                        <img src="https://cdn-icons-png.flaticon.com/128/4799/4799332.png" alt="">
+                        <span>Group</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 mb-3">
+                <a href="G" class="text-decoration-none">
+                    <div class="card icon-card h-100">
+                        <img src="https://cdn-icons-png.flaticon.com/128/11944/11944421.png" alt="">
+                        <span>Tutorial</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 mb-3">
+                <a href="/about" class="text-decoration-none">
+                    <div class="card icon-card h-100">
+                        <img src="https://cdn-icons-png.flaticon.com/128/1379/1379904.png" alt="">
+                        <span>About Us</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Login Button -->
+        <div class="text-center my-4">
+            <a href="/login" class="dashboard-login-btn">
+                Login Now
+            </a>
+        </div>
+
+        <!-- Profit Calculator -->
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center text-primary mb-4">Profit Calculator</h3>
+                <div class="row align-items-center">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Amount</label>
+                        <input type="number" class="form-control" name="amount" id="amount" placeholder="Enter amount" min="0">
+                    </div>
+                    <div class="col-md-5 mb-3">
+                        <label class="form-label">Investment Plan</label>
+                        <select class="form-select" name="selectplan" id="plan">
+                            <option selected disabled class="text-secondary">Select a plan</option>
+                            <option value="19">Vip 12</option>
+                            <option value="18">Vip 11</option>
+                            <option value="17">Vip 10</option>
+                            <option value="16">Vip 9</option>
+                            <option value="15">VIP 8</option>
+                            <option value="14">Vip 7</option>
+                            <option value="13">VIP 6</option>
+                            <option value="5">VIP 5</option>
+                            <option value="4">VIP 4</option>
+                            <option value="3">VIP 3</option>
+                            <option value="2">VIP 2</option>
+                            <option value="1">VIP 1</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <button id="calculate-btn" class="btn btn-primary w-100 mt-md-0 mt-2">Calculate Earning</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Referral System -->
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
+                        <h3 class="text-primary mb-0">Referral System</h3>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="referral-wrapper">
+                            <div class="referral-item">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/011/356/487/small/glass-shield-protect-sign-png.png" alt="image">
+                                <div class="referral-content">
+                                    <div class="referral-amount">15%</div>
+                                    <span class="referral-caption">Level 1</span>
+                                </div>
+                            </div>
+                            <div class="referral-item">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/011/356/487/small/glass-shield-protect-sign-png.png" alt="image">
+                                <div class="referral-content">
+                                    <div class="referral-amount">3%</div>
+                                    <span class="referral-caption">Level 2</span>
+                                </div>
+                            </div>
+                            <div class="referral-item">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/011/356/487/small/glass-shield-protect-sign-png.png" alt="image">
+                                <div class="referral-content">
+                                    <div class="referral-amount">2%</div>
+                                    <span class="referral-caption">Level 3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Enhanced Referral Section -->
+                <div class="referral-section mt-4">
+                    <div class="referral-card">
+                        <div class="referral-header">
+                            <img src="https://cdn-icons-png.flaticon.com/128/1006/1006555.png" alt="Referral" class="referral-icon">
+                            <h3 class="referral-title">Invite Friends & Earn</h3>
+                        </div>
+                        <p>Share your referral link with friends and earn commission from their investments</p>
+                        
+                        <div class="referral-stats">
+                            <div class="stat-item">
+                                <div class="stat-value" id="refCount">12</div>
+                                <div class="stat-label">Referred</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" id="refEarnings">$350</div>
+                                <div class="stat-label">Earnings</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" id="refPending">$120</div>
+                                <div class="stat-label">Pending</div>
+                            </div>
+                        </div>
+                        
+                        <div class="referral-link-box">
+                            <div class="referral-link" id="refLink">/ref/abc123</div>
+                            <button class="copy-btn" onclick="copyReferralLink()">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="d-flex justify-content-center gap-2">
+                            <button class="btn btn-sm btn-outline-primary">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </button>
+                            <button class="btn btn-sm btn-outline-primary">
+                                <i class="fab fa-facebook"></i> Facebook
+                            </button>
+                            <button class="btn btn-sm btn-outline-primary">
+                                <i class="fab fa-telegram"></i> Telegram
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial Carousel -->
+        <div class="testimonial-container">
+            <h2 class="testimonial-title">What Our Clients Say</h2>
+            
+            <div class="testimonial-carousel">
+                <div class="testimonial-track">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Life Change Earn has completely transformed how I manage my investments. The returns are consistent, and the platform is so easy to use. I've increased my portfolio by 35% in just 6 months!"
+                            </p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="author-avatar">
+                            <h3 class="author-name">Michael Chen</h3>
+                            <p class="author-title">Investor since 2021</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "I was hesitant at first, but the transparency and daily profits won me over. The customer support team is exceptional - they're always available to answer my questions. Highly recommend!"
+                            </p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="author-avatar">
+                            <h3 class="author-name">Sarah Johnson</h3>
+                            <p class="author-title">Business Owner</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "The referral program is fantastic! I've not only earned from my investments but also from introducing friends to the platform. It's been a game-changer for my financial independence journey."
+                            </p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="David Martinez" class="author-avatar">
+                            <h3 class="author-name">David Martinez</h3>
+                            <p class="author-title">Freelance Designer</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "I've tried several investment platforms, but none compare to Life Change Earn. The withdrawal process is quick, and the variety of plans suits both conservative and aggressive investors."
+                            </p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emma Wilson" class="author-avatar">
+                            <h3 class="author-name">Emma Wilson</h3>
+                            <p class="author-title">Financial Analyst</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-controls">
+                <button class="carousel-btn prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="carousel-indicators">
+                <div class="indicator active" data-index="0"></div>
+                <div class="indicator" data-index="1"></div>
+                <div class="indicator" data-index="2"></div>
+                <div class="indicator" data-index="3"></div>
+            </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="card">
+            <div class="card-body">
+                <div class="row justify-content-center mb-4">
+                    <div class="col-lg-7 text-center">
+                        <h3 class="text-primary mb-3">How It Works</h3>
+                        <p class="text-muted">Simple steps to start earning with our platform</p>
+                    </div>
+                </div>
+
+                <div class="row gy-4 justify-content-center">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="work-item">
+                            <div class="work-number">1</div>
+                            <div class="work-content">
+                                <h4 class="title text-secondary font-weight-bold">Create an Account</h4>
+                                <p class="mt-2 text-muted">Sign up to get started with our platform</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="work-item">
+                            <div class="work-number">2</div>
+                            <div class="work-content">
+                                <h4 class="title text-secondary font-weight-bold">Choose Plan</h4>
+                                <p class="mt-2 text-muted">Select an investment plan that suits you</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="work-item">
+                            <div class="work-number">3</div>
+                            <div class="work-content">
+                                <h4 class="title text-secondary font-weight-bold">Get Profit</h4>
+                                <p class="mt-2 text-muted">Start earning returns on your investment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Menu -->
+    <div class="appBottomMenu fixed-bottom">
+        <div class="row justify-content-around">
+            <a href="/investmentplan" class="col text-center item">
+                <img height="30" width="30" src="https://cdn-icons-png.flaticon.com/128/8146/8146553.png" alt="">
+                <strong>Buy Plan</strong>
+            </a>
+            <a href="/ads-list" class="col text-center item">
+                <img height="30" width="30" src="https://cdn-icons-png.flaticon.com/128/7692/7692809.png" alt="">
+                <strong>Task</strong>
+            </a>
+            <a href="/dashboard" class="col text-center item">
+                <div class="bg-white border-2 border-primary p-1 rounded-circle d-inline-block">
+                    <img height="30" width="30" src="https://cdn-icons-png.flaticon.com/128/9897/9897599.png" alt="">
+                </div>
+            </a>
+            <a href="javascript:void(0)" class="col text-center item withdrawAction">
+                <img height="30" width="30" src="https://cdn-icons-png.flaticon.com/128/2200/2200293.png" alt="">
+                <strong>Withdraw</strong>
+            </a>
+            <a href="/login" class="col text-center item">
+                <img height="30" width="30" src="https://cdn-icons-png.flaticon.com/128/1041/1041869.png" alt="">
+                <strong>Login</strong>
+            </a>
+        </div>
+    </div>
+
+    <!-- Profit Calculation Modal -->
+    <div class="modal fade" id="calculationModal" tabindex="-1" aria-labelledby="calculationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="calculationModalLabel">Profit Calculation Result</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="profit-result">
+                        <h4>Your Estimated Profit</h4>
+                        <div class="profit-amount" id="profitAmount">$0.00</div>
+                        <p>Based on your investment plan and amount</p>
+                        
+                        <div class="profit-details">
+                            <div class="detail-item">
+                                <span>Investment Amount:</span>
+                                <span id="investmentAmount">$0.00</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>Plan Duration:</span>
+                                <span id="planDuration">0 days</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>Daily Profit:</span>
+                                <span id="dailyProfit">0%</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>Total Return:</span>
+                                <span id="totalReturn">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Invest Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap & jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sidebar functionality
+            const sidebar = document.getElementById('sidebarPanel');
+            const overlay = document.getElementById('sidebarOverlay');
+            const openSidebarBtn = document.getElementById('openSidebar');
+            const closeSidebarBtn = document.getElementById('closeSidebar');
+            
+            function openSidebar() {
+                sidebar.classList.add('open');
+                overlay.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeSidebar() {
+                sidebar.classList.remove('open');
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            
+            openSidebarBtn.addEventListener('click', openSidebar);
+            closeSidebarBtn.addEventListener('click', closeSidebar);
+            overlay.addEventListener('click', closeSidebar);
+            
+            // Testimonial Carousel Functionality
+            const track = document.querySelector('.testimonial-track');
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const indicators = document.querySelectorAll('.indicator');
+            
+            let currentIndex = 0;
+            const slideCount = slides.length;
+            
+            // Function to move to a specific slide
+            function moveToSlide(index) {
+                if (index < 0) index = slideCount - 1;
+                if (index >= slideCount) index = 0;
+                
+                track.style.transform = `translateX(-${index * 100}%)`;
+                currentIndex = index;
+                
+                // Update indicators
+                indicators.forEach((indicator, i) => {
+                    if (i === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Next slide function
+            function nextSlide() {
+                moveToSlide(currentIndex + 1);
+            }
+            
+            // Previous slide function
+            function prevSlide() {
+                moveToSlide(currentIndex - 1);
+            }
+            
+            // Set up event listeners
+            if (nextBtn && prevBtn) {
+                nextBtn.addEventListener('click', nextSlide);
+                prevBtn.addEventListener('click', prevSlide);
+            }
+            
+            // Add click events to indicators
+            if (indicators) {
+                indicators.forEach(indicator => {
+                    indicator.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        moveToSlide(index);
+                    });
+                });
+            }
+            
+            // Auto-advance slides
+            let autoSlideInterval = setInterval(nextSlide, 5000);
+            
+            // Pause auto-slide when interacting with carousel
+            const carousel = document.querySelector('.testimonial-carousel');
+            if (carousel) {
+                carousel.addEventListener('mouseenter', () => {
+                    clearInterval(autoSlideInterval);
+                });
+                
+                carousel.addEventListener('mouseleave', () => {
+                    autoSlideInterval = setInterval(nextSlide, 5000);
+                });
+            }
+            
+            // Profit Calculator Functionality
+            const calculateBtn = document.getElementById('calculate-btn');
+            if (calculateBtn) {
+                calculateBtn.addEventListener('click', function() {
+                    const amount = parseFloat(document.getElementById('amount').value);
+                    const plan = document.getElementById('plan').value;
+                    
+                    if (!amount || !plan) {
+                        alert('Please enter an amount and select a plan');
+                        return;
+                    }
+                    
+                    // Simulate calculation based on plan
+                    let dailyProfit, duration, totalReturn;
+                    
+                    switch(plan) {
+                        case '1': // VIP 1
+                            dailyProfit = 1.5;
+                            duration = 30;
+                            break;
+                        case '2': // VIP 2
+                            dailyProfit = 2.0;
+                            duration = 30;
+                            break;
+                        case '3': // VIP 3
+                            dailyProfit = 2.5;
+                            duration = 30;
+                            break;
+                        case '4': // VIP 4
+                            dailyProfit = 3.0;
+                            duration = 30;
+                            break;
+                        case '5': // VIP 5
+                            dailyProfit = 3.5;
+                            duration = 30;
+                            break;
+                        case '13': // VIP 6
+                            dailyProfit = 4.0;
+                            duration = 30;
+                            break;
+                        case '14': // VIP 7
+                            dailyProfit = 4.5;
+                            duration = 30;
+                            break;
+                        case '15': // VIP 8
+                            dailyProfit = 5.0;
+                            duration = 30;
+                            break;
+                        case '16': // VIP 9
+                            dailyProfit = 5.5;
+                            duration = 30;
+                            break;
+                        case '17': // VIP 10
+                            dailyProfit = 6.0;
+                            duration = 30;
+                            break;
+                        case '18': // VIP 11
+                            dailyProfit = 6.5;
+                            duration = 30;
+                            break;
+                        case '19': // VIP 12
+                            dailyProfit = 7.0;
+                            duration = 30;
+                            break;
+                        default:
+                            dailyProfit = 2.0;
+                            duration = 30;
+                    }
+                    
+                    const profit = amount * (dailyProfit / 100) * duration;
+                    totalReturn = amount + profit;
+                    
+                    // Update modal with results
+                    document.getElementById('profitAmount').textContent = `$${profit.toFixed(2)}`;
+                    document.getElementById('investmentAmount').textContent = `$${amount.toFixed(2)}`;
+                    document.getElementById('planDuration').textContent = `${duration} days`;
+                    document.getElementById('dailyProfit').textContent = `${dailyProfit}%`;
+                    document.getElementById('totalReturn').textContent = `$${totalReturn.toFixed(2)}`;
+                    
+                    // Show modal
+                    const calculationModal = new bootstrap.Modal(document.getElementById('calculationModal'));
+                    calculationModal.show();
+                });
+            }
+            
+            // Copy referral link function
+            window.copyReferralLink = function() {
+                const link = document.getElementById('refLink');
+                navigator.clipboard.writeText(link.textContent)
+                    .then(() => {
+                        alert('Referral link copied to clipboard!');
+                    })
+                    .catch(err => {
+                        console.error('Failed to copy: ', err);
+                    });
+            };
+        });
+    </script>
+    <script>
+// Add this JavaScript to handle CSRF tokens in AJAX requests
+$(document).ready(function() {
+    // Function to get CSRF token
+    function getCSRFToken() {
+        return $('meta[name="csrf-token"]').attr('content');
+    }
+    
+    // Setup AJAX to include CSRF token in all requests
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", getCSRFToken());
+            }
+        }
+    });
+});
+</script>
+</body>
+</html>

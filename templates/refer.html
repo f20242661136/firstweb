@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Life change earn">
+    <meta name="keywords"
+        content="bootstrap, wallet, banking, fintech mobile template, cordova, phonegap, mobile, html, responsive" />
+    <meta name="csrf-token" content="WJJxiNzRRqphEhx8yRURaBehiCuxpxXKCjlAqdSv">
+
+    <link rel="shortcut icon" type="image/png" href="https://life-change-earn.com/asset/theme3/images/icon/icon.png">
+    <link rel="apple-touch-icon" href="https://life-change-earn.com/asset/theme3/images/icon/icon.png">
+    <title>Life Change Earn - My Team</title>
+
+    <!-- CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #198787;
+            --secondary-color: #0cb7bd;
+            --accent-color: #1dcc70;
+            --dark-color: #147474;
+            --light-color: #e8f5f5;
+            --text-color: #333;
+            --text-light: #777;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--text-color);
+            min-height: 100vh;
+            background-attachment: fixed;
+            padding-bottom: 80px;
+            overflow-x: hidden;
+        }
+
+        /* Improved Header Styles - Matching Dashboard */
+        .appHeader {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+            box-shadow: var(--shadow);
+            padding: 12px 15px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--white);
+            height: 60px;
+        }
+
+        .appHeader .left,
+        .appHeader .right {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .appHeader .pageTitle {
+            flex: 1;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        .appHeader .pageTitle h2 {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            font-size: 1.3rem;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: white;
+        }
+
+        .headerButton {
+            color: var(--white);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .headerButton:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .profileImgView {
+            border: 2px solid var(--white);
+            width: 36px;
+            height: 36px;
+            object-fit: cover;
+        }
+
+        /* Improved Bottom Menu - Matching Dashboard */
+        .appBottomMenu {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            box-shadow: 0 -4px 12px rgba(12, 183, 189, 0.3);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            padding: 10px 5px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            height: 70px;
+        }
+
+        .appBottomMenu .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 5px;
+            transition: var(--transition);
+            border-radius: 15px;
+            flex: 1;
+            max-width: 20%;
+            text-decoration: none;
+        }
+
+        .appBottomMenu .item:hover {
+            transform: translateY(-5px);
+        }
+
+        .appBottomMenu .item.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .appBottomMenu .item img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            margin-bottom: 4px;
+        }
+
+        .appBottomMenu .item strong {
+            color: var(--white);
+            font-weight: 500;
+            font-size: 11px;
+            text-align: center;
+            display: block;
+        }
+
+        /* Main Content */
+        #appCapsule {
+            padding: 80px 0 30px;
+        }
+
+        /* Card Styles */
+        .card {
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border: none;
+            margin-bottom: 20px;
+            transition: var(--transition);
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            font-weight: 600;
+            border-bottom: none;
+            padding: 15px 20px;
+        }
+
+        /* Referral Section */
+        .referral-input {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 10px 15px;
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .copy-btn:hover {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            transform: translateY(-2px);
+        }
+
+        /* Stats Cards */
+        .stat-card {
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-color) 100%);
+            border: 1px solid rgba(12, 183, 189, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(12, 183, 189, 0.15);
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 10px 0 5px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Referral Tree */
+        .sp-referral {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .single-child {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            border: 1px solid rgba(12, 183, 189, 0.2);
+        }
+
+        .single-child p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+        }
+
+        .single-child p img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .single-child p span {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .sub-child-list {
+            position: relative;
+            padding-left: 30px;
+            margin-top: 15px;
+        }
+
+        .sub-child-list::before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 15px;
+            width: 2px;
+            height: 100%;
+            background-color: var(--secondary-color);
+            opacity: 0.5;
+        }
+
+        .sub-child-list .single-child {
+            position: relative;
+        }
+
+        .sub-child-list .single-child::before {
+            position: absolute;
+            content: '';
+            left: -15px;
+            top: 50%;
+            width: 15px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            opacity: 0.5;
+        }
+
+        /* Floating Button */
+        .float-btn {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 576px) {
+            .appHeader {
+                padding: 10px;
+                height: 55px;
+            }
+
+            .appHeader .pageTitle h2 {
+                font-size: 1.1rem;
+            }
+
+            .appBottomMenu .item strong {
+                font-size: 10px;
+            }
+
+            .appBottomMenu .item img {
+                width: 24px;
+                height: 24px;
+            }
+
+            .stat-value {
+                font-size: 1.3rem;
+            }
+
+            .single-child {
+                padding: 10px;
+            }
+
+            .single-child p img {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- App Header -->
+    <div class="appHeader">
+        <div class="left">
+            <a href="#" class="headerButton" data-bs-toggle="modal" data-bs-target="#sidebarPanel">
+                <i class="fas fa-bars"></i>
+            </a>
+        </div>
+        <div class="pageTitle">
+            <h2>My Team</h2>
+        </div>
+        <div class="right">
+            <a href="javascript:void(0)" class="headerButton profileSettingBtn">
+                <img src="https://img.freepik.com/premium-photo/memoji-happy-man-white-background-emoji_826801-6838.jpg"
+                    alt="Profile" class="profileImgView rounded-circle">
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="appCapsule">
+        <div class="container">
+            <!-- Referral Link Card -->
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h4 class="text-center mb-3" style="color: var(--primary-color);">Refer Friend</h4>
+                    <div class="input-group">
+                        <input type="text" name="key" value="https://life-change-earn.com/register/Riais"
+                            class="form-control referral-input" id="referralURL" readonly>
+                        <button class="btn copy-btn px-3" id="copyBoard">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="row mt-3">
+                <div class="col-6">
+                    <div class="stat-card">
+                        <i class="fas fa-users" style="font-size: 24px; color: var(--primary-color);"></i>
+                        <div class="stat-value">1</div>
+                        <div class="stat-label">Team Count</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="stat-card">
+                        <i class="fas fa-chart-line" style="font-size: 24px; color: var(--primary-color);"></i>
+                        <div class="stat-value">Rs 0</div>
+                        <div class="stat-label">Team Investment</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Referral Link Section -->
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h4 class="text-center mb-3" style="color: var(--primary-color);">Refer Friend</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control referral-input" id="referralURL" readonly>
+                        <button class="btn copy-btn px-3" id="copyBoard">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Referral Tree -->
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5 class="mb-0 text-white">Reference Tree</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="sp-referral">
+                        <li class="single-child root-child">
+                            <p>
+                                <img src="https://life-change-earn.com/asset/images/profile/dummy-profile.png">
+                                <span>Riais - N/A</span>
+                            </p>
+                            <ul class="sub-child-list step-2">
+                                <li class="single-child">
+                                    <p>
+                                        <img src="https://life-change-earn.com/asset/images/profile/dummy-profile.png">
+                                        <span>Riaisz - N/A</span>
+                                    </p>
+                                    <ul class="sub-child-list step-3">
+                                        <!-- More levels can be added here -->
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Add this to your HTML -->
+<div id="loadingIndicator" class="text-center py-3" style="display: none;">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-2">Loading data...</p>
+</div>
+    <!-- Floating Button -->
+    <div class="float-btn">
+        <img src="https://cdn-icons-png.flaticon.com/128/3670/3670133.png" alt="Support"
+            style="width: 30px; height: 30px;">
+    </div>
+
+    <!-- Bottom Menu -->
+    <div class="appBottomMenu">
+        <a href="https://life-change-earn.com/investmentplan" class="item">
+            <img src="https://cdn-icons-png.flaticon.com/128/8146/8146553.png" alt="Buy Plan">
+            <strong>Buy Plan</strong>
+        </a>
+        <a href="https://life-change-earn.com/ads-list" class="item">
+            <img src="https://cdn-icons-png.flaticon.com/128/7692/7692809.png" alt="Task">
+            <strong>Task</strong>
+        </a>
+        <a href="https://life-change-earn.com/dashboard" class="item">
+            <img src="https://cdn-icons-png.flaticon.com/128/9897/9897599.png" alt="Dashboard">
+            <strong>Home</strong>
+        </a>
+        <a href="javascript:void(0)" class="item">
+            <img src="https://cdn-icons-png.flaticon.com/128/2200/2200293.png" alt="Withdraw">
+            <strong>Withdraw</strong>
+        </a>
+        <a href="javascript:void(0)" class="item active">
+            <img src="https://cdn-icons-png.flaticon.com/128/12157/12157508.png" alt="My Team">
+            <strong>My Team</strong>
+        </a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Global variables
+        let userData = null;
+        let referralTree = null;
+
+        // Function to fetch user stats
+        async function fetchUserStats() {
+            try {
+                const response = await fetch('/api/user/stats');
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                userData = await response.json();
+                updateUserStats(userData);
+            } catch (error) {
+                console.error('Error fetching user stats:', error);
+                showError('Failed to load user statistics');
+            }
+        }
+
+        // Function to fetch referral tree
+        async function fetchReferralTree() {
+            try {
+                const response = await fetch('/api/user/referrals');
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                referralTree = await response.json();
+                renderReferralTree(referralTree);
+            } catch (error) {
+                console.error('Error fetching referral tree:', error);
+                showError('Failed to load referral tree');
+            }
+        }
+
+        // Update user statistics in the UI
+        function updateUserStats(data) {
+            // Update referral count
+            document.querySelector('.stat-value:first-child').textContent = data.referral_count;
+
+            // Update team investment
+            document.querySelectorAll('.stat-value')[1].textContent = `Rs ${data.team_investment}`;
+
+            // Update referral link
+            const referralLink = `https://life-change-earn.com/register/${data.referral_code}`;
+            document.getElementById('referralURL').value = referralLink;
+
+            // Update username in referral tree
+            const rootUserElement = document.querySelector('.root-child span');
+            if (rootUserElement) {
+                rootUserElement.textContent = `${data.username} - N/A`;
+            }
+        }
+
+        // Render referral tree
+        function renderReferralTree(tree) {
+            const treeContainer = document.querySelector('.sp-referral');
+            if (!treeContainer) return;
+
+            // Clear existing content
+            treeContainer.innerHTML = '';
+
+            if (!tree || tree.length === 0) {
+                treeContainer.innerHTML = `
+                <li class="single-child">
+                    <p class="text-center text-muted">
+                        <i class="fas fa-users fa-2x mb-2"></i><br>
+                        No referrals yet. Share your link to grow your team!
+                    </p>
+                </li>
+            `;
+                return;
+            }
+
+            // Build the tree HTML
+            treeContainer.appendChild(buildTreeElement(tree, 1));
+        }
+
+        // Recursively build tree elements
+        function buildTreeElement(nodes, level) {
+            const ul = document.createElement('ul');
+            if (level === 1) {
+                ul.className = 'sp-referral';
+            } else {
+                ul.className = `sub-child-list step-${level}`;
+            }
+
+            nodes.forEach(node => {
+                const li = document.createElement('li');
+                li.className = `single-child ${level === 1 ? 'root-child' : ''}`;
+
+                li.innerHTML = `
+                <p>
+                    <img src="https://life-change-earn.com/asset/images/profile/dummy-profile.png" 
+                         alt="${node.username}">
+                    <span>${node.username} - ${node.plan}</span>
+                </p>
+            `;
+
+                // Add children if they exist
+                if (node.children && node.children.length > 0) {
+                    li.appendChild(buildTreeElement(node.children, level + 1));
+                }
+
+                ul.appendChild(li);
+            });
+
+            return ul;
+        }
+
+        // Enhanced copy function
+        document.getElementById('copyBoard').addEventListener('click', function () {
+            const referralInput = document.getElementById('referralURL');
+            referralInput.select();
+            referralInput.setSelectionRange(0, 99999);
+
+            try {
+                navigator.clipboard.writeText(referralInput.value).then(() => {
+                    // Show success message
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i> Copied!';
+
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                    }, 2000);
+
+                    // Optional: Show a toast notification
+                    showToast('Referral link copied to clipboard!', 'success');
+                });
+            } catch (err) {
+                // Fallback for older browsers
+                document.execCommand('copy');
+
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check"></i> Copied!';
+
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 2000);
+
+                showToast('Referral link copied!', 'success');
+            }
+        });
+
+        // Utility function to show toast notifications
+        function showToast(message, type = 'info') {
+            // Remove any existing toasts
+            const existingToasts = document.querySelectorAll('.custom-toast');
+            existingToasts.forEach(toast => toast.remove());
+
+            // Create new toast
+            const toast = document.createElement('div');
+            toast.className = `custom-toast alert alert-${type}`;
+            toast.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            min-width: 250px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        `;
+            toast.innerHTML = `
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        `;
+
+            document.body.appendChild(toast);
+
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.parentNode.removeChild(toast);
+                }
+            }, 3000);
+        }
+
+        // Error handling
+        function showError(message) {
+            showToast(message, 'danger');
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            fetchUserStats();
+            fetchReferralTree();
+
+            // Set up periodic refresh (every 60 seconds)
+            setInterval(() => {
+                fetchUserStats();
+            }, 60000);
+        });
+        // Add this function to include CSRF token in requests
+function getCSRFToken() {
+    return document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
+}
+
+// Modify your fetch calls to include CSRF token
+async function fetchUserStats() {
+    try {
+        const response = await fetch('/api/user/stats', {
+            headers: {
+                'X-CSRF-Token': getCSRFToken(),
+                'Content-Type': 'application/json'
+            }
+        });
+        // ... rest of the function
+    } catch (error) {
+        // ... error handling
+    }
+}
+// Add these functions to show/hide loading indicator
+function showLoading() {
+    document.getElementById('loadingIndicator').style.display = 'block';
+}
+
+function hideLoading() {
+    document.getElementById('loadingIndicator').style.display = 'none';
+}
+
+// Update your fetch functions
+async function fetchUserStats() {
+    showLoading();
+    try {
+        // ... existing code
+    } catch (error) {
+        // ... error handling
+    } finally {
+        hideLoading();
+    }
+}
+    </script>
+</body>
+
+</html>

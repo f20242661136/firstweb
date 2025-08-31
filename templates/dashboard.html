@@ -1,0 +1,1154 @@
+{% if not current_user.is_authenticated %}
+    <script>window.location.href = "{{ url_for('auth.login') }}";</script>
+{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <title>Life Change Earn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #198787;
+            --secondary-color: #0cb7bd;
+            --accent-color: #1dcc70;
+            --dark-color: #147474;
+            --light-color: #e8f5f5;
+            --text-color: #333;
+            --text-light: #777;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-image: url('https://i.pinimg.com/564x/42/99/b5/4299b5da740b5ab59000c7e56b61a88f.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center top;
+            color: var(--text-color);
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
+
+        /* Improved Header Styles */
+        .appHeader {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+            box-shadow: var(--shadow);
+            padding: 12px 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--white);
+            height: 60px;
+        }
+
+        .appHeader .left, .appHeader .right {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .appHeader .pageTitle {
+            flex: 1;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        .appHeader .pageTitle h2 {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            font-size: 1.3rem;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .headerButton {
+            color: var(--white);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .headerButton:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .profileImgView {
+            border: 2px solid var(--white);
+            width: 36px;
+            height: 36px;
+            object-fit: cover;
+        }
+
+        /* Hamburger menu icon */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--white);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* Improved Sidebar Panel */
+        .sidebar-panel {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 1100;
+            transition: var(--transition);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-panel.active {
+            left: 0;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar-header h3 {
+            color: var(--white);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .sidebar-close {
+            color: var(--white);
+            font-size: 1.5rem;
+            text-decoration: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .sidebar-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .sidebar-content {
+            padding: 20px 0;
+            flex: 1;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            border-left: 4px solid transparent;
+        }
+
+        .sidebar-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .sidebar-item i {
+            width: 24px;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .sidebar-item span {
+            font-weight: 500;
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1099;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Improved Bottom Menu */
+        .appBottomMenu {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            box-shadow: 0 -4px 12px rgba(12, 183, 189, 0.3);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            padding: 10px 5px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            height: 70px;
+        }
+
+        .appBottomMenu .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 5px;
+            transition: var(--transition);
+            border-radius: 15px;
+            flex: 1;
+            max-width: 20%;
+            text-decoration: none;
+        }
+
+        .appBottomMenu .item:hover {
+            transform: translateY(-5px);
+        }
+
+        .appBottomMenu .item.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .appBottomMenu .item img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            margin-bottom: 4px;
+        }
+
+        .appBottomMenu .item strong {
+            color: var(--white);
+            font-weight: 500;
+            font-size: 11px;
+            text-align: center;
+            display: block;
+        }
+
+        /* Improved Wallet Card */
+        .wallet-card-section {
+            padding: 20px 15px 15px;
+        }
+
+        .wallet-card-section .wallet-top {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+        }
+
+        .wallet-card-section .imaged {
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--secondary-color);
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+
+        .wallet-info {
+            flex: 1;
+            padding: 0 15px;
+        }
+
+        .badge-primary {
+            background: rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .wallet-info h4 {
+            color: var(--white);
+            font-weight: 600;
+            margin: 5px 0 0;
+        }
+
+        .balance-card {
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-color) 100%);
+            border: 2px solid var(--secondary-color);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .balance-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: linear-gradient(135deg, transparent 0%, rgba(12, 183, 189, 0.1) 50%, transparent 100%);
+            transform: rotate(-45deg);
+            z-index: 0;
+        }
+
+        .balance-info {
+            position: relative;
+            z-index: 1;
+        }
+
+        .balance-card h6 {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .balance-card h3 {
+            color: var(--secondary-color);
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 0;
+        }
+
+        .slanted-edge {
+            position: relative;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+            transform: skewX(-10deg);
+        }
+
+        .slanted-edge img {
+            width: 60px;
+            height: 60px;
+            transform: skewX(10deg);
+        }
+
+        /* Improved Icon Cards */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+
+        .icon-card-link {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .icon-card {
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-color) 100%);
+            border: 1px solid rgba(12, 183, 189, 0.3);
+            border-radius: 15px;
+            padding: 12px;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .icon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(12, 183, 189, 0.2);
+        }
+
+        .icon-card img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+        }
+
+        .small-font {
+            color: var(--text-color);
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        /* Improved Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-color) 100%);
+            border: 1px solid rgba(12, 183, 189, 0.3);
+            border-radius: 15px;
+            padding: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(12, 183, 189, 0.15);
+        }
+
+        .stat-card img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-bottom: 8px;
+            filter: brightness(0) saturate(100%) invert(57%) sepia(26%) saturate(3596%) hue-rotate(141deg) brightness(95%) contrast(91%);
+        }
+
+        .stat-card .title {
+            color: var(--text-light);
+            font-size: 11px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .stat-card .value {
+            color: var(--text-color);
+            font-size: 13px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* Feature Cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 0 15px;
+            margin-bottom: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid rgba(12, 183, 189, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(12, 183, 189, 0.15);
+        }
+
+        .feature-card img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .feature-card span {
+            color: var(--primary-color);
+            font-size: 13px;
+            font-weight: 600;
+            text-align: right;
+            flex: 1;
+            padding-left: 10px;
+        }
+
+        /* Improved Buttons */
+        .btn {
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            padding: 10px 25px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(25, 135, 135, 0.4);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #f93a5a 0%, #f7778c 100%);
+            border: none;
+        }
+
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #f7778c 0%, #f93a5a 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(249, 58, 90, 0.4);
+        }
+
+        /* Section title */
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 25px 15px 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-color);
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* Custom Modal Styles to Prevent Errors */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1040;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000;
+            opacity: 0.5;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1050;
+            display: none;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            outline: 0;
+        }
+
+        .modal-dialog {
+            position: relative;
+            width: auto;
+            margin: 0.5rem;
+            pointer-events: none;
+        }
+
+        .modal-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            pointer-events: auto;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 0.3rem;
+            outline: 0;
+        }
+
+        /* Loading spinner */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--white);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 576px) {
+            .appHeader {
+                padding: 10px;
+                height: 55px;
+            }
+            
+            .appHeader .pageTitle h2 {
+                font-size: 1.1rem;
+            }
+            
+            .wallet-card-section {
+                padding: 15px 10px 10px;
+            }
+            
+            .wallet-card-section .wallet-top {
+                padding: 12px;
+            }
+            
+            .wallet-card-section .imaged {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .balance-card {
+                padding: 15px;
+            }
+            
+            .balance-card h3 {
+                font-size: 20px;
+            }
+            
+            .slanted-edge {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .slanted-edge img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .icon-grid, .stats-grid {
+                gap: 8px;
+            }
+            
+            .icon-card {
+                height: 70px;
+                padding: 10px;
+            }
+            
+            .icon-card img {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .stat-card {
+                padding: 10px;
+            }
+            
+            .stat-card img {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .small-font {
+                font-size: 11px;
+            }
+            
+            .feature-grid {
+                gap: 8px;
+            }
+            
+            .feature-card {
+                padding: 12px;
+                height: 65px;
+            }
+            
+            .feature-card img {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .feature-card span {
+                font-size: 12px;
+            }
+
+            .hamburger {
+                width: 20px;
+                height: 16px;
+            }
+            
+            .hamburger span {
+                height: 2px;
+            }
+            
+            .sidebar-panel {
+                width: 280px;
+                left: -280px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .icon-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .appBottomMenu .item strong {
+                font-size: 10px;
+            }
+            
+            .appHeader .pageTitle h2 {
+                font-size: 1rem;
+            }
+            
+            .sidebar-panel {
+                width: 100%;
+                left: -100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+    <!-- Top Nav -->
+    <div class="appHeader">
+        <div class="left">
+            <a href="#" class="headerButton" id="sidebarToggle">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </a>
+        </div>
+        <div class="pageTitle">
+            <h2>Life Change Earn</h2>
+        </div>
+        <div class="right">
+            <a href="/profile" class="headerButton profileSettingBtn">
+                <img src="https://img.freepik.com/premium-photo/memoji-happy-man-white-background-emoji_826801-6838.jpg" 
+                     alt="Profile" class="profileImgView rounded-circle">
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar Panel -->
+    <div class="sidebar-panel" id="sidebarPanel">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <a href="#" class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </a>
+        </div>
+        <div class="sidebar-content">
+            <a href="/dashboard" class="sidebar-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="/investmentplan" class="sidebar-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Buy Plan</span>
+            </a>
+            <a href="/record" class="sidebar-item">
+                <i class="fas fa-exchange-alt"></i>
+                <span>Transactions</span>
+            </a>
+            <a href="/investmentplan" class="sidebar-item">
+                <i class="fas fa-wallet"></i>
+                <span>Deposit</span>
+            </a>
+            <a href="/withdraw" class="sidebar-item">
+                <i class="fas fa-money-bill-wave"></i>
+                <span>Withdraw</span>
+            </a>
+            <a href="/team" class="sidebar-item">
+                <i class="fas fa-users"></i>
+                <span>Team</span>
+            </a>
+            <a href="/rewards" class="sidebar-item">
+                <i class="fas fa-gift"></i>
+                <span>Rewards</span>
+            </a>
+            <a href="/profile" class="sidebar-item">
+                <i class="fas fa-cog"></i>
+                <span>Profile</span>
+            </a>
+            <a href="/help" class="sidebar-item">
+                <i class="fas fa-question-circle"></i>
+                <span>Help & Support</span>
+            </a>
+        </div>
+    </div>
+<div class="flash-messages-container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+    <!-- App Capsule -->
+    <div id="appCapsule">
+        <!-- Wallet Card -->
+        <div class="wallet-card-section">
+            <div class="wallet-top">
+                <div class="col-auto">
+                    <img class="imaged rounded-circle"
+                        src="https://img.freepik.com/premium-photo/memoji-happy-man-white-background-emoji_826801-6838.jpg" />
+                </div>
+                <div class="wallet-info">
+                    <div class="badge badge-primary">{{ user.plan or 'No Plan' }}</div>
+                    <h4>{{ user.username }}</h4>
+                </div>
+                <div class="col-auto text-center">
+                    <a href="/tasks" class="text-decoration-none">
+                        <img width="45px" height="45px" class="mx-auto"
+                            src="https://cdn-icons-png.flaticon.com/128/2965/2965363.png" alt="VIP Badge" />
+                        <h5 class="font-bold text-light">Daily Task</h5>
+                    </a>
+                </div>
+            </div>
+
+            <div class="balance-card">
+                <div class="balance-info">
+                    <h6>Current Balance</h6>
+                    <h3>Rs {{ "%.2f"|format(user.balance) }}</h3>
+                </div>
+                <div class="slanted-edge">
+                    <img src="https://cdn-icons-png.flaticon.com/128/1041/1041888.png" alt="Balance">
+                </div>
+            </div>
+        </div>
+
+        <!-- Icon Card -->
+        <h2 class="section-title">Quick Actions</h2>
+        <div class="icon-grid">
+            <a href="/investmentplan" class="icon-card-link">
+                <div class="icon-card">
+                    <img src="https://cdn-icons-png.flaticon.com/128/10473/10473647.png" alt="Deposit">
+                </div>
+                <span class="small-font">Deposit</span>
+            </a>
+            <a href="/withdraw" class="icon-card-link">
+                <div class="icon-card">
+                    <img src="https://cdn-icons-png.flaticon.com/128/11347/11347441.png" alt="Withdraw">
+                </div>
+                <span class="small-font">Withdraw</span>
+            </a>
+            <a href="/record" class="icon-card-link">
+                <div class="icon-card">
+                    <img src="https://cdn-icons-png.flaticon.com/128/12607/12607706.png" alt="Records">
+                </div>
+                <span class="small-font">Records</span>
+            </a>
+            <a href="/profile" class="icon-card-link">
+                <div class="icon-card">
+                    <img src="https://cdn-icons-png.flaticon.com/128/2779/2779807.png" alt="Profile">
+                </div>
+                <span class="small-font">Profile</span>
+            </a>
+        </div>
+
+        <!-- Stats -->
+        <h2 class="section-title">Statistics</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <img src="https://cdn-icons-png.flaticon.com/128/10473/10473611.png" alt="Total Deposit">
+                <div class="title">Total Deposit</div>
+                <div class="value text-danger">Rs {{ "%.2f"|format(total_deposit) }}</div>
+            </div>
+            <div class="stat-card">
+                <img src="https://cdn-icons-png.flaticon.com/128/8607/8607774.png" alt="Total Withdraw">
+                <div class="title">Total Withdraw</div>
+                <div class="value text-success">Rs 0.00</div>
+            </div>
+            <div class="stat-card">
+                <img src="https://cdn-icons-png.flaticon.com/128/1635/1635309.png" alt="Total Invest">
+                <div class="title">Total Invest</div>
+                <div class="value">Rs 0.00</div>
+            </div>
+            <div class="stat-card">
+                <img src="https://cdn-icons-png.flaticon.com/128/1376/1376386.png" alt="Recent Invest">
+                <div class="title">Recent Invest</div>
+                <div class="value">Rs 0.00</div>
+            </div>
+            <div class="stat-card">
+                <img src="https://cdn-icons-png.flaticon.com/128/3039/3039647.png" alt="Pending Invest">
+                <div class="title">Pending Invest</div>
+                <div class="value">Rs 0.00</div>
+            </div>
+            <div class="stat-card">
+                <img src="https://cdn-icons-png.flaticon.com/128/7226/7226594.png" alt="Referral Earn">
+                <div class="title">Referral Earn</div>
+                <div class="value">Rs 0.00</div>
+            </div>
+        </div>
+
+        <!-- Feature Cards -->
+        <h2 class="section-title">Features</h2>
+        <div class="feature-grid">
+            <a href="/profile" class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/128/11069/11069063.png" alt="Profile Setting">
+                <span>Profile Setting</span>
+            </a>
+            <a href="/leaderboard" class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/128/1041/1041875.png" alt="Top 10">
+                <span>Top 10</span>
+            </a>
+            <a href="/tasks" class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/128/11944/11944357.png" alt="Tasks">
+                <span>Tasks</span>
+            </a>
+            <a href="/investmentplan" class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/128/10645/10645948.png" alt="Active Plans">
+                <span>Active Plans</span>
+            </a>
+            <a href="/referral" class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/128/10147/10147493.png" alt="Refer Friends">
+                <span>Refer Friends</span>
+            </a>
+            <a href="/apps" class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/128/8853/8853856.png" alt="Apps">
+                <span>Apps</span>
+            </a>
+        </div>
+
+        <!-- Sign Out Button -->
+        <div class="text-center mt-4 mb-5">
+            <button class="btn btn-danger w-50" id="signOutBtn">Sign Out</button>
+        </div>
+    </div>
+
+    <!-- Bottom Nav -->
+    <div class="appBottomMenu">
+        <a href="/investmentplan" class="item">
+            <img src="https://cdn-icons-png.flaticon.com/128/8146/8146553.png" alt="Buy Plan">
+            <strong>Buy Plan</strong>
+        </a>
+        <a href="/tasks" class="item">
+            <img src="https://cdn-icons-png.flaticon.com/128/7692/7692809.png" alt="Task">
+            <strong>Task</strong>
+        </a>
+        <a href="/dashboard" class="item active">
+            <img src="https://cdn-icons-png.flaticon.com/128/9897/9897599.png" alt="Dashboard">
+            <strong>Home</strong>
+        </a>
+        <a href="/withdraw" class="item">
+            <img src="https://cdn-icons-png.flaticon.com/128/2200/2200293.png" alt="Withdraw">
+            <strong>Withdraw</strong>
+        </a>
+        <a href="/team" class="item">
+            <img src="https://cdn-icons-png.flaticon.com/128/12157/12157508.png" alt="My Team">
+            <strong>My Team</strong>
+        </a>
+    </div>
+
+    <!-- Sign Out Modal -->
+    <div class="modal" id="signoutModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Sign Out</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to sign out?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmSignOut">Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sidebar functionality
+        function initSidebar() {
+            const sidebar = document.getElementById('sidebarPanel');
+            const overlay = document.getElementById('sidebarOverlay');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebarClose = document.getElementById('sidebarClose');
+            
+            function openSidebar() {
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeSidebar() {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            
+            sidebarToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                openSidebar();
+            });
+            
+            sidebarClose.addEventListener('click', function(e) {
+                e.preventDefault();
+                closeSidebar();
+            });
+            
+            overlay.addEventListener('click', closeSidebar);
+            
+            // Close sidebar when pressing Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+                    closeSidebar();
+                }
+            });
+        }
+
+        // Custom modal implementation to prevent backdrop errors
+        function initModal() {
+            const modal = document.getElementById('signoutModal');
+            const signOutBtn = document.getElementById('signOutBtn');
+            const confirmSignOut = document.getElementById('confirmSignOut');
+            const closeBtn = modal.querySelector('.btn-close');
+            const cancelBtn = modal.querySelector('.btn-secondary');
+            
+            // Create backdrop element
+            const backdrop = document.createElement('div');
+            backdrop.className = 'modal-backdrop fade';
+            backdrop.style.display = 'none';
+            document.body.appendChild(backdrop);
+            
+            // Show modal function
+            function showModal() {
+                modal.style.display = 'block';
+                backdrop.style.display = 'block';
+                setTimeout(() => {
+                    modal.classList.add('show');
+                    backdrop.classList.add('show');
+                }, 10);
+            }
+            
+            // Hide modal function
+            function hideModal() {
+                modal.classList.remove('show');
+                backdrop.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    backdrop.style.display = 'none';
+                }, 300);
+            }
+            
+            // Event listeners
+            signOutBtn.addEventListener('click', showModal);
+            closeBtn.addEventListener('click', hideModal);
+            cancelBtn.addEventListener('click', hideModal);
+            confirmSignOut.addEventListener('click', function() {
+                hideModal();
+                // Redirect to logout route
+                window.location.href = '/logout';
+            });
+            
+            // Close modal when clicking on backdrop
+            backdrop.addEventListener('click', hideModal);
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initModal();
+            initSidebar();
+            
+            // Add active class to clicked menu items
+            const menuItems = document.querySelectorAll('.appBottomMenu .item');
+            const currentPath = window.location.pathname;
+            
+            // Set active menu item based on current path
+            menuItems.forEach(item => {
+                const href = item.getAttribute('href');
+                if (currentPath === href) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+                
+                item.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                    }
+                    menuItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Add animation to elements
+            const animateElements = document.querySelectorAll('.icon-card, .stat-card, .feature-card');
+            animateElements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.1}s`;
+                element.classList.add('animate-fadeIn');
+            });
+        });
+    </script>
+</body>
+</html>

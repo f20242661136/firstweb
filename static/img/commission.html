@@ -1,0 +1,2063 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Life change earn">
+    <meta name="keywords"
+        content="bootstrap, wallet, banking, fintech mobile template, cordova, phonegap, mobile, html, responsive" />
+
+    <meta name="csrf-token" content="HpFwZ7uPZC96OG74FHDRzljXKAcUG4ZwrAMOf0Mi">
+    
+    <link rel="shortcut icon" type="image/png" href="https://life-change-earn.com/asset/theme3/images/icon/icon.png">
+    <link rel="apple-touch-icon" href="https://life-change-earn.com/asset/theme3/images/icon/icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://life-change-earn.com/asset/theme3/images/icon/icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://life-change-earn.com/asset/theme3/images/icon/icon.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="https://life-change-earn.com/asset/theme3/images/icon/icon.png">
+    <link rel="apple-touch-startup-image" href="https://life-change-earn.com/asset/theme3/images/icon/icon.png">
+    <title>
+                    Life change earn
+                
+    </title>
+
+    <link href="https://life-change-earn.com/asset/theme3/frontend/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <link href="https://life-change-earn.com/asset/theme3/frontend/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://life-change-earn.com/asset/theme3/frontend/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://life-change-earn.com/asset/theme3/frontend/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://life-change-earn.com/asset/theme3/frontend/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="https://life-change-earn.com/asset/theme3/frontend/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="https://life-change-earn.com/asset/theme3/frontend/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://life-change-earn.com/asset/theme3/frontend/css/selectric.css">
+    <link rel="stylesheet" href="https://life-change-earn.com/asset/theme3/frontend/css/animate.min.css">
+    <link rel="stylesheet" href="https://life-change-earn.com/asset/theme3/frontend/css/font-awsome.min.css">
+    <link rel="stylesheet" href="https://life-change-earn.com/asset/theme3/frontend/css/iziToast.min.css">
+    <link href="https://life-change-earn.com/asset/theme3/frontend/css/style.css" rel="stylesheet">
+
+
+    <!-- Custom Css Start-->
+    
+    <link rel="stylesheet" href="https://life-change-earn.com/asset/theme3/assets/css/style.css">
+    <link rel="manifest" href="https://life-change-earn.com/asset/theme3/__manifest.json">
+    <!-- Custom Css End-->
+
+    <!-- Material icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom Css Blade-->
+    <style>
+    body {
+        background-image: url('https://i.pinimg.com/564x/42/99/b5/4299b5da740b5ab59000c7e56b61a88f.jpg');
+        /* background-image: url('https://i.imgur.com/QULMdli.jpeg'); */
+        /* background-image: url('https://i.imgur.com/gH2pB4s.png'); */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center top;
+    }
+
+    .img-primary {
+        filter: brightness(0) saturate(100%) invert(57%) sepia(26%) saturate(3596%) hue-rotate(141deg) brightness(95%) contrast(91%);
+    }
+    .img-white {
+        filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(267deg) brightness(103%) contrast(103%);
+    }
+
+    .bg-card-new {
+        background: rgb(255, 255, 255);
+        background: linear-gradient(45deg, rgba(255, 255, 255, 1) 40%, rgb(11 183 189/ 64%) 75%, rgb(26 135 135/ 64%) 100%);
+    }
+
+    .bg-card-new-2 {
+        background: rgb(255, 255, 255);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 1) 65%, rgb(11 183 189) 90%, rgb(26 135 135) 100%);
+    }
+
+    .slanted-edge {
+        --p: 40px;
+        aspect-ratio: 1;
+        clip-path: polygon(var(--p) 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    /* Loader-section */
+    #loader {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 99999;
+        background: #64b5f6;
+        background-image: linear-gradient(to bottom, #1976d2 0, #64b5f6 100%) !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+    }
+
+    .appHeader {
+        background-color: #198787 !important;
+        background: #198787 !important;
+    }
+
+    .appBottomMenu {
+        background-color: #0cb7bd !important;
+        background: #0cb7bd !important;
+    }
+
+    .appBottomMenu .item strong {
+        margin-top: 4px;
+        display: block;
+        color: #ffffff;
+        font-weight: 400;
+    }
+
+    .dashboard-login-btn {
+        display: inline-block;
+        text-decoration: none;
+        padding: 8px;
+        font-size: 20px;
+        font-weight: bold;
+        color: white !important;
+        background: linear-gradient(45deg, #198787, #0cb7bd);
+        border-radius: 8px;
+        box-shadow: 0 6px 15px cyan;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        width: 280px;
+        text-align: center;
+        animation: gradientChange 5s ease infinite;
+    }
+
+    @keyframes  gradientChange {
+        0% {
+            filter: hue-rotate(0deg);
+        }
+
+        25% {
+            filter: hue-rotate(90deg);
+        }
+
+        50% {
+            filter: hue-rotate(180deg);
+        }
+
+        75% {
+            filter: hue-rotate(270deg);
+        }
+
+        100% {
+            filter: hue-rotate(360deg);
+        }
+    }
+
+    .dashboard-main {
+        min-height: 100vh;
+        background-color: #198787;
+        background: linear-gradient(180deg, #198787 0%, #198787 10%, #ffffff00 35%);
+        background-attachment: fixed;
+    }
+
+    /* background: linear-gradient(180deg, rgba(255,57,111,1) 0%, rgba(255,116,154,1) 6%, rgba(229,234,240,1) 30%); */
+
+    /* card-section */
+    .card-block .card-main {
+        background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0) 0%, rgb(0 0 0 / 8%) 100%);
+    }
+
+    /* link-section */
+    .section-heading .link {
+        color: rgb(255 54 147 / 50%);
+    }
+
+    .select {
+        height: 35px;
+        padding: 0px 5px;
+    }
+
+
+
+    /* sidebar-section */
+
+    .sidebar-balance {
+        background: #64b5f6;
+        background-image: linear-gradient(to bottom, #ff396f 0, #f664b8 100%) !important;
+    }
+
+    .action-group {
+        background: #64b5f6;
+    }
+
+    /* header-section */
+    .wallet-card-section:before {
+        /* background-image: linear-gradient(to bottom,#ff749a 0,#e5eaf0 100%) !important; */
+        background-image: linear-gradient(to bottom, #ff749900 0, #e5eaf000 100%) !important;
+        background: #6236ff00;
+        height: 200px;
+        border-radius: 0px 0px 20px 20px;
+    }
+
+    /* gateway-section */
+    .gatewayItem {
+        padding: 3px;
+        border-radius: 11px;
+        border: 1px solid #dee2e6;
+        cursor: pointer;
+    }
+
+    .gatewayActive {
+        border: 2px solid #ffc107 !important;
+    }
+
+    .gatewayItem img {
+        max-width: 110px;
+        width: 100%;
+        transition: transform .2s;
+    }
+
+    .gatewayItem img:hover {
+        transform: scale(1.1);
+    }
+
+    /* input-group */
+    .after-append {
+        background: #8494A8;
+        color: #FFF;
+        padding: 10px;
+        border-radius: 0 8px 8px 0px !important;
+    }
+
+    .before-append {
+        background: #8494A8;
+        color: #FFF;
+        padding: 10px;
+        border-radius: 8px 0 0 8px !important;
+    }
+
+    .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+        margin-left: -1px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        height: auto;
+    }
+
+
+
+    /* Icon-cestion */
+    .wallet-card .wallet-footer .item .icon-wrapper {
+        border-radius: 50%;
+    }
+
+    .custom-icon-box {
+        background: #6236FF;
+        width: 48px;
+        height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 24px;
+    }
+
+    .stat-box {
+        background: #ffffff;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.09);
+        border-radius: 10px;
+        padding: 10px 15px;
+        height: 100%;
+    }
+
+    /* background-section */
+
+    /* gradiant */
+    .gr-bg-blue {
+        background-image: linear-gradient(to right, #1976d2 0, #64b5f6 100%) !important;
+    }
+
+    .gr-bg-red {
+        background-image: linear-gradient(45deg, #f93a5a, #f7778c) !important;
+    }
+
+    .gr-bg-green {
+        background-image: linear-gradient(to left, #48d6a8 0%, #029666 100%) !important;
+    }
+
+    .gr-bg-orange {
+        background-image: linear-gradient(to left, #efa65f, #f76a2d) !important;
+    }
+
+    .bg-primary {
+        background-image: linear-gradient(to bottom, #147474 0, #12b1b1 100%) !important;
+        color: #FFF;
+    }
+
+    /* .bg-primary {
+        background-image: linear-gradient(to bottom,#ff396f 0,#f664b8 100%) !important;
+        color: #FFF;
+    } */
+    .bg-pink-light {
+        background-image: linear-gradient(to bottom, #198754 0, #1dcc70 100%) !important;
+        color: #FFF;
+    }
+
+    .bg-pink-light-alt {
+        background-image: linear-gradient(to top, #1dcc70 0, #198754 100%) !important;
+        color: #FFF;
+    }
+
+    /* button-section */
+    .btn {
+        border-radius: 30px;
+    }
+
+    .btn-text-primary {
+        color: #ff396f !important;
+    }
+
+    .modal button.close {
+        width: 30px;
+        height: 30px;
+        background-color: #f63d43;
+        color: #fff;
+        opacity: 1;
+        padding: 0;
+        border-radius: 50%;
+    }
+
+    .btn-primary {
+        background-image: linear-gradient(to bottom, #1976d2 0, #64b5f6 100%) !important;
+        border-color: #1976d2 !important;
+        color: #FFFFFF !important;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active,
+    .btn-primary.active {
+        background-image: linear-gradient(to top, #1976d2 0, #64b5f6 100%) !important;
+        border-color: #64b5f6 !important;
+    }
+
+    .btn-primary.disabled,
+    .btn-primary:disabled {
+        background-image: linear-gradient(to bottom, #1976d2 0, #64b5f6 100%);
+        border-color: #1976d2;
+        opacity: 0.5;
+    }
+
+    .btn-secondary {
+        background-image: linear-gradient(to bottom, #8494A8 0, #e0edff 100%) !important;
+        border: 0px;
+        color: #FFFFFF !important;
+    }
+
+    .btn-secondary:hover {
+        background-image: linear-gradient(to top, #8494A8 0, #e0edff 100%) !important;
+        border: 0px;
+        color: #FFFFFF !important;
+    }
+
+    .btn-secondary:focus {
+        background-image: linear-gradient(to top, #8494A8 0, #e0edff 100%) !important;
+        border: 0px;
+        color: #FFFFFF !important;
+    }
+
+    .btn-pink-light {
+        background-image: linear-gradient(to bottom, #198754 0, #1dcc70 100%) !important;
+        color: #FFF;
+        border: 0px;
+    }
+
+    .btn-pink-light:hover {
+        background-image: linear-gradient(to top, #198787 0, #198787 100%) !important;
+        color: #FFF;
+        border: 0px;
+    }
+
+    .btn-pink-light:focus {
+        background-image: linear-gradient(to top, #198754 0, #1dcc70 100%) !important;
+        color: #FFF;
+        border: 0px;
+    }
+
+    .main-btn {
+        background-image: linear-gradient(to bottom, #198754 0, #1dcc70 100%) !important;
+        color: #FFF;
+        border: 0px;
+    }
+
+    .main-btn:hover {
+        background-image: linear-gradient(to top, #198787 0, #198787 100%) !important;
+        color: #FFF;
+        border: 0px;
+    }
+
+    .main-btn:focus {
+        background-image: linear-gradient(to top, #198754 0, #1dcc70 100%) !important;
+        color: #FFF;
+        border: 0px;
+    }
+
+    .modal button.close {
+        background-image: linear-gradient(to top, #fd0000 0, #ffe8e8 100%) !important;
+        border: 0px !important;
+    }
+
+    /* badge-section */
+
+    .badge-primary::before {
+        background-color: #ffffff00;
+    }
+
+    .badge-info::before {
+        background-color: #ffffff00;
+    }
+
+    .badge-warning::before {
+        background-color: #ffffff00;
+    }
+
+    .badge-danger::before {
+        background-color: #ffffff00;
+    }
+
+    .badge-success::before {
+        background-color: #ffffff00;
+    }
+
+
+    /* font-cection */
+    .stat-box .value {
+        font-size: 15px;
+    }
+
+    .stat-box .title {
+        font-size: 12px;
+    }
+
+    .small-font {
+        color: #333;
+        font-size: 10px;
+        text-align: center;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .small-font-sm {
+        color: #333;
+        font-size: 8px;
+        text-align: center;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .small-font-lg {
+        color: #333;
+        font-size: 12px;
+        text-align: center;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .text-pink,
+    a.text-pink {
+        color: #ff396f !important;
+    }
+
+    /* reffer-cection */
+    .sp-referral .single-child {
+        padding: 6px 10px;
+        border-radius: 5px;
+    }
+
+    .sp-referral .single-child+.single-child {
+        margin-top: 15px;
+    }
+
+    .sp-referral .single-child p {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+    }
+
+    .sp-referral .single-child p img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        object-fit: cover;
+        -o-object-fit: cover;
+    }
+
+    .sp-referral .single-child p span {
+        width: calc(100% - 35px);
+        font-size: 14px;
+        padding-left: 10px;
+    }
+
+    .sp-referral>.single-child.root-child>p img {
+        border: 2px solid #c3c3c3;
+    }
+
+    .sub-child-list {
+        position: relative;
+        padding-left: 35px;
+    }
+
+    .sub-child-list::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 17px;
+        width: 1px;
+        height: 100%;
+        background-color: #a1a1a1;
+    }
+
+    .sub-child-list>.single-child {
+        position: relative;
+    }
+
+    .sub-child-list>.single-child::before {
+        position: absolute;
+        content: '';
+        left: -18px;
+        top: 21px;
+        width: 30px;
+        height: 5px;
+        border-left: 1px solid #a1a1a1;
+        border-bottom: 1px solid #a1a1a1;
+        border-radius: 0 0 0 5px;
+    }
+
+    .sub-child-list>.single-child>p img {
+        border: 2px solid #c3c3c3;
+    }
+
+    /* border-section */
+    .card {
+        border-radius: 20px !important;
+    }
+
+    .rounded-20px {
+        border-radius: 20px !important;
+    }
+
+    .border-tl-50 {
+        border-radius: 70px 20px 20px 20px !important;
+    }
+
+    .border-tl-60 {
+        border-radius: 70px 20px 20px !important;
+    }
+
+    .border-tl-70 {
+        border-radius: 70px 20px 20px 20px !important;
+    }
+
+    /****************/
+    /* admin-section
+    /****************/
+</style>
+
+    
+
+    <link rel="stylesheet" href="https://life-change-earn.com/assets/admin/build/css/intlTelInput.css">
+    <!-- Owl -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css">
+
+
+    <style>
+        .owl-dots {
+            display: none;
+        }
+
+        .imgEdit {
+            width: 35px !important;
+            height: 35px !important;
+            margin-left: -3.5rem !important;
+            margin-bottom: 1.5rem !important;
+        }
+    </style>
+    <style>
+        .intl-tel-input {
+            position: relative;
+            display: inline-block;
+            width: 100% !important;
+        }
+
+        .profile-thumb {
+            position: relative;
+            width: 11.25rem;
+            height: 11.25rem;
+            border-radius: 15px;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -ms-border-radius: 15px;
+            -o-border-radius: 15px;
+            display: inline-flex;
+        }
+
+        .profile-thumb .profilePicPreview {
+            width: 11.25rem;
+            height: 11.25rem;
+            border-radius: 15px;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -ms-border-radius: 15px;
+            -o-border-radius: 15px;
+            display: block;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .profile-thumb .profilePicUpload {
+            font-size: 0;
+            opacity: 0;
+        }
+
+        .profile-thumb .avatar-edit {
+            position: absolute;
+            right: -15px;
+            bottom: -20px;
+        }
+
+        .profile-thumb .avatar-edit input {
+            width: 0;
+        }
+
+        .profile-thumb .avatar-edit label {
+            width: 45px;
+            height: 45px;
+            background-color: #37ebec;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 45px;
+            border: 2px solid #ffffff;
+            font-size: 18px;
+            cursor: pointer;
+            color: #000000;
+        }
+    </style>
+
+    <!-- jquery -->
+    <script src="https://life-change-earn.com/asset/theme3/frontend/js/jquery.min.js"></script>
+
+    <style>
+        .custom_preload {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999999999;
+        }
+
+        .loderCustom {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% -50%)
+        }
+    </style>
+
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+
+    
+
+    <!-- Preloader Ajax Start -->
+    <div id="preLoadCustom" class="d-none">
+        <div class="custom_preload d-flex align-items-center justify-content-center">
+            <img width="40px" class="loaderCustom" src="https://life-change-earn.com/asset/images/loader/loading-ios.webp"
+                alt="">
+        </div>
+    </div>
+    <!-- Preloader Ajax End -->
+
+    <!-- custom loader -->
+    
+    <!-- * custom loader -->
+
+    
+
+    <main id="main" class="dashboard-main">
+        <section class="dashboard-section">
+            
+
+
+            <!-- Float btn -->
+            
+
+            
+            <div class="fixed z-[999] bottom-[65px] right-[12px] shadow-md shadow-gray-900 bg-transparent border-gray-300 rounded-full w-[60px] h-[60px]">
+                <img class="w-full h-full" src="https://cdn-icons-png.flaticon.com/128/3670/3670133.png" alt="">
+            </div>
+
+            <!-- Top Nav -->
+            <!-- App Header -->
+<div class="appHeader bg-warning text-light">
+    <div class="left">
+         <a href="#" class="headerButton" data-bs-toggle="modal" data-bs-target="#sidebarPanel">
+            <ion-icon name="menu-outline"></ion-icon>
+        </a> 
+      
+    </div>
+    <div class="pageTitle">
+        
+        <!--<img src="https://life-change-earn.com/asset/theme3/images/logo/whitelogo.jpg" alt="logo" class="logo">-->  
+        <h2 class="text-white font-bold">Life change earn</h2>   
+    </div>
+    <div class="right">
+        <a href="javascript:void(0)" class="headerButton profileSettingBtn">
+            <img src="https://img.freepik.com/premium-photo/memoji-happy-man-white-background-emoji_826801-6838.jpg?uid=R105847321&amp;ga=GA1.1.1844285242.1739977262&amp;semt=ais_hybrid" alt="image" class="imaged w32 rounded-circle shadow-sm profileImgView">
+        </a>
+    </div>
+</div>
+<!-- * App Header -->
+
+            <!-- Side Nav -->
+            <!-- App Sidebar -->
+ 
+<div class="modal fade panelbox panelbox-left" id="sidebarPanel" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body p-0">
+                <!-- profile box -->
+                <!--<div class="profileBox pt-2 pb-2">-->
+                    <!--<div class="image-wrapper">-->
+                    <!--    <img src="assets/img/sample/avatar/avatar1.jpg" alt="image" class="imaged  w36">-->
+                    <!--</div>-->
+                    <!--<div class="in">-->
+                    <!--    <strong>Sebastian Doe</strong>-->
+                    <!--    <div class="text-muted">4029209</div>-->
+                    <!--</div>-->
+                    <!--<a href="#" class="btn btn-link btn-icon sidebar-close" data-bs-dismiss="modal">-->
+                    <!--    <ion-icon name="close-outline"></ion-icon>-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!-- * profile box -->
+                <!-- balance -->
+                <!--<div class="sidebar-balance">-->
+                <!--    <div class="listview-title">Balance</div>-->
+                <!--    <div class="in">-->
+                <!--        <h1 class="amount">$ 2,562.50</h1>-->
+                <!--    </div>-->
+                <!--</div>-->
+                <!-- * balance -->
+
+                <!-- action group -->
+                <!--<div class="action-group">-->
+                <!--    <a href="index.html" class="action-button">-->
+                <!--        <div class="in">-->
+                <!--            <div class="iconbox">-->
+                <!--                <ion-icon name="add-outline"></ion-icon>-->
+                <!--            </div>-->
+                <!--            Deposit-->
+                <!--        </div>-->
+                <!--    </a>-->
+                <!--    <a href="index.html" class="action-button">-->
+                <!--        <div class="in">-->
+                <!--            <div class="iconbox">-->
+                <!--                <ion-icon name="arrow-down-outline"></ion-icon>-->
+                <!--            </div>-->
+                <!--            Withdraw-->
+                <!--        </div>-->
+                <!--    </a>-->
+                <!--    <a href="index.html" class="action-button">-->
+                <!--        <div class="in">-->
+                <!--            <div class="iconbox">-->
+                <!--                <ion-icon name="arrow-forward-outline"></ion-icon>-->
+                <!--            </div>-->
+                <!--            Send-->
+                <!--        </div>-->
+                <!--    </a>-->
+                    <!--<a href="app-cards.html" class="action-button">-->
+                    <!--    <div class="in">-->
+                    <!--        <div class="iconbox">-->
+                    <!--            <ion-icon name="card-outline"></ion-icon>-->
+                    <!--        </div>-->
+                    <!--        My Cards-->
+                    <!--    </div>-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!-- * action group -->
+
+                <!-- menu -->
+                <!--<div class="listview-title mt-1">Menu</div>-->
+                <!--<ul class="listview flush transparent no-line image-listview">-->
+                <!--    <li>-->
+                <!--        <a href="index.html" class="item">-->
+                <!--            <div class="icon-box bg-primary">-->
+                <!--                <ion-icon name="pie-chart-outline"></ion-icon>-->
+                <!--            </div>-->
+                <!--            <div class="in">-->
+                <!--                Overview-->
+                <!--                <span class="badge badge-primary">10</span>-->
+                <!--            </div>-->
+                <!--        </a>-->
+                <!--    </li>-->
+                <!--    <li>-->
+                <!--        <a href="app-pages.html" class="item">-->
+                <!--            <div class="icon-box bg-primary">-->
+                <!--                <ion-icon name="document-text-outline"></ion-icon>-->
+                <!--            </div>-->
+                <!--            <div class="in">-->
+                <!--                Pages-->
+                <!--            </div>-->
+                <!--        </a>-->
+                <!--    </li>-->
+                <!--    <li>-->
+                <!--        <a href="app-components.html" class="item">-->
+                <!--            <div class="icon-box bg-primary">-->
+                <!--                <ion-icon name="apps-outline"></ion-icon>-->
+                <!--            </div>-->
+                <!--            <div class="in">-->
+                <!--                Components-->
+                <!--            </div>-->
+                <!--        </a>-->
+                <!--    </li>-->
+                <!--    <li>-->
+                <!--        <a href="app-cards.html" class="item">-->
+                <!--            <div class="icon-box bg-primary">-->
+                <!--                <ion-icon name="card-outline"></ion-icon>-->
+                <!--            </div>-->
+                <!--            <div class="in">-->
+                <!--                My Cards-->
+                <!--            </div>-->
+                <!--        </a>-->
+                <!--    </li>-->
+                <!--</ul>-->
+                <!-- * menu -->
+
+                <!-- others -->
+                <div class="listview-title mt-1">Others</div>
+                <ul class="listview flush transparent no-line image-listview">
+                    <li>
+                        <a href="https://life-change-earn.com" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="home"></ion-icon>
+                            </div>
+                            <div class="in">
+                                Home
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://life-change-earn.com/dashboard" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="settings-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                Dashboard
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/transaction/log" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="chatbubble-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                Transactions
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://life-change-earn.com/logout" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="log-out-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                Log out
+                            </div>
+                        </a>
+                    </li>
+
+
+                </ul>
+                <!-- * others -->
+
+                <!-- send money -->
+                <!--<div class="listview-title mt-1">Send Money</div>-->
+                <!--<ul class="listview image-listview flush transparent no-line">-->
+                <!--    <li>-->
+                <!--        <a href="#" class="item">-->
+                <!--            <img src="assets/img/sample/avatar/avatar2.jpg" alt="image" class="image">-->
+                <!--            <div class="in">-->
+                <!--                <div>Artem Sazonov</div>-->
+                <!--            </div>-->
+                <!--        </a>-->
+                <!--    </li>-->
+                <!--    <li>-->
+                <!--        <a href="#" class="item">-->
+                <!--            <img src="assets/img/sample/avatar/avatar4.jpg" alt="image" class="image">-->
+                <!--            <div class="in">-->
+                <!--                <div>Sophie Asveld</div>-->
+                <!--            </div>-->
+                <!--        </a>-->
+                <!--    </li>-->
+                <!--    <li>-->
+                <!--        <a href="#" class="item">-->
+                <!--            <img src="assets/img/sample/avatar/avatar3.jpg" alt="image" class="image">-->
+                <!--            <div class="in">-->
+                <!--                <div>Kobus van de Vegte</div>-->
+                <!--            </div>-->
+                <!--        </a>-->
+                <!--    </li>-->
+                <!--</ul>-->
+                <!-- * send money -->
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- * App Sidebar -->
+
+            <!-- App Capsule -->
+            <div id="appCapsule">
+                    <div class="d-none" id="currentPath">Referral_Log</div>
+
+<!-- Logs Navigation -->
+<div class="container">
+    <div class="card mt-2">
+        <div class="card-body text-center">
+            <h3 class="pb-2 mb-1 border-bottom">All Logs</h3>
+            <div class="row justify-content-center">
+                <!--<div class="col-4 px-1 mb-1">-->
+                <!--    <a class="btn btn-warning btn-sm w-100 logNav depositLogBtn" id="logNavDeposit" href="#" >Deposit</a>-->
+                <!--</div>-->
+                <div class="col-4 px-1 mb-1">
+                    <a class="btn btn-warning btn-sm w-100 logNav withdrawLogBtn" id="logNavWithdraw" href="#">Withdraw</a>
+                </div>
+                <div class="col-4 px-1 mb-1">
+                    <a class="btn btn-warning btn-sm w-100 logNav investLogBtn" id="logNavInvest" href="#">Invest</a>
+                </div>
+                <div class="col-4 px-1 mb-1">
+                    <a class="btn btn-warning btn-sm w-100 logNav interestLogBtn" id="logNavInterest" href="#">Income</a>
+                </div>
+                
+                <div class="col-4 px-1 mb-1">
+                    <a class="btn btn-warning btn-sm w-100 logNav transactionLogBtn" id="logNavTransaction" href="#">Transaction</a>
+                </div>
+                <div class="col-4 px-1 mb-1">
+                    <a class="btn btn-warning btn-sm w-100 logNav commisionLogBtn" id="logNavReferral" href="#">Referral</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    console.log($('#currentPath').html());
+
+    $('.logNav').removeClass('disabled');
+
+    if( $('#currentPath').html() == 'Deposit_Log' ){
+        $('#logNavDeposit').addClass("disabled");
+    }
+    if( $('#currentPath').html() == 'Withdraw_Log' ){
+        $('#logNavWithdraw').addClass("disabled");
+    }
+    if( $('#currentPath').html() == 'Invest_Log' ){
+        $('#logNavInvest').addClass("disabled");
+    }
+    if( $('#currentPath').html() == 'Interest_Log' ){
+        $('#logNavInterest').addClass("disabled");
+    }
+    // if( $('#currentPath').html() == 'Transfer_Log' ){
+    //     $('#logNavTransfer').addClass("disabled");
+    // }
+    if( $('#currentPath').html() == 'Transaction_Log' ){
+        $('#logNavTransaction').addClass("disabled");
+    }
+    if( $('#currentPath').html() == 'Referral_Log' ){
+        $('#logNavReferral').addClass("disabled");
+    }
+
+</script>
+<!-- Referral History -->
+<div class="section my-3">
+    <div class="transactions">
+            </div>
+</div>
+<!-- * Referral History -->
+            </div>
+
+            <!-- Bottom Nav -->
+            <!-- App Bottom Menu -->
+<div class="appBottomMenu bg-warning">
+    <a href="https://life-change-earn.com/investmentplan" class="item investmentPlanBtn">
+        <div class="col flex flex-col justify-center items-center">
+            <img height="30px" width="30px" class="" src="https://cdn-icons-png.flaticon.com/128/8146/8146553.png" alt="">
+            <strong>Buy Plan</strong>
+        </div>
+    </a>
+
+    <a href="https://life-change-earn.com/ads-list" class="item">
+        <div class="col flex flex-col justify-center items-center">
+            <img height="30px" width="30px" src="https://cdn-icons-png.flaticon.com/128/7692/7692809.png"
+                alt="">
+            <strong>Task</strong>
+        </div>
+    </a>
+    <a href="https://life-change-earn.com/dashboard" class="item userDashboardBtn">
+        <div class="col flex flex-col justify-center items-center mb-4 bg-white border-2 border-[#0cb7bd] p-1 rounded-full">
+            <img height="30px" width="30px" class="img-primary" src="https://cdn-icons-png.flaticon.com/128/9897/9897599.png" alt="">
+            
+        </div>
+    </a>
+    <a href="javascript:void(0)" class="item withdrawAction">
+        <div class="col flex flex-col justify-center items-center">
+            <img height="30px" width="30px" src="https://cdn-icons-png.flaticon.com/128/2200/2200293.png" alt="">
+            <strong>Withdraw</strong>
+        </div>
+    </a>
+                <a href="javascript:void(0)" class="item refferFriendBtn">
+            <div class="col flex flex-col justify-center items-center">
+                <img height="30px" width="30px" src="https://cdn-icons-png.flaticon.com/128/12157/12157508.png"
+                    alt="">
+                <strong>My Team</strong>
+            </div>
+        </a>
+    </div>
+<!-- * App Bottom Menu -->
+
+
+            <!-- Deposit Action Sheet -->
+            <!-- Deposit Action Sheet -->
+<div class="modal fade action-sheet" id="depositAction" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Balance</h5>
+            </div>
+            <div class="modal-body">
+                <div class="action-sheet-content">
+                    <div id="depositActionBody"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- * Deposit Action Sheet -->
+
+            <!-- Withdraw Action Sheet -->
+            <!-- Withdraw Action Sheet -->
+<div class="modal fade action-sheet" id="withdrawAction" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title !text-cyan-800">Withdraw Money</h5>
+            </div>
+            <div class="modal-body">
+                <div class="action-sheet-content">
+                    <div id="withdrawActionBody"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- * Withdraw Action Sheet -->
+
+            <!-- Transfer Action Sheet -->
+            <!-- Transfer Action Sheet -->
+<div class="modal fade action-sheet" id="transferAction" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Send Money</h5>
+            </div>
+            <div class="modal-body">
+                <div class="action-sheet-content">
+                    <form>
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="account2">From</label>
+                                <select class="form-control custom-select" id="account2">
+                                    <option value="0">Savings (*** 5019)</option>
+                                    <option value="1">Investment (*** 6212)</option>
+                                    <option value="2">Mortgage (*** 5021)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="text11">To</label>
+                                <input type="email" class="form-control" id="text11" placeholder="Enter bank ID">
+                                <i class="clear-input">
+                                    <ion-icon name="close-circle"></ion-icon>
+                                </i>
+                            </div>
+                        </div>
+
+                        <div class="form-group basic">
+                            <label class="label">Enter Amount</label>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" id="basic-addon1">$</span>
+                                <input type="text" class="form-control" placeholder="Enter an amount" value="100">
+                            </div>
+                        </div>
+
+                        <div class="form-group basic">
+                            <button type="button" class="btn btn-primary btn-block btn-lg"
+                                data-bs-dismiss="modal">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- * Transfer Action Sheet -->
+
+
+
+        </section>
+    </main>
+
+
+
+    
+    
+    <script src="https://life-change-earn.com/asset/theme3/frontend/vendor/purecounter/purecounter.js"></script>
+    <script src="https://life-change-earn.com/asset/theme3/frontend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://life-change-earn.com/asset/theme3/frontend/js/feather.min.js"></script>
+
+    <script src="https://life-change-earn.com/asset/theme3/frontend/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="https://life-change-earn.com/asset/theme3/frontend/vendor/php-email-form/validate.js"></script>
+    <script src="https://life-change-earn.com/asset/theme3/frontend/js/selectric.min.js"></script>
+
+    <script src="https://life-change-earn.com/asset/theme3/frontend/js/iziToast.min.js"></script>
+    <script src="https://life-change-earn.com/asset/theme3/frontend/js/jquery.uploadPreview.min.js"></script>
+    <script src="https://life-change-earn.com/asset/theme3/frontend/js/user_dashboard.js"></script>
+
+
+    <!-- ========= Custom JS Files Start =========  -->
+    <!-- Bootstrap -->
+    <script src="https://life-change-earn.com/asset/theme3/assets/js/lib/bootstrap.bundle.min.js"></script>
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- Splide -->
+    <script src="https://life-change-earn.com/asset/theme3/assets/js/plugins/splide/splide.min.js"></script>
+    <!-- Base Js File -->
+    <script src="https://life-change-earn.com/asset/theme3/assets/js/base.js"></script>
+    <!-- Sweet Alert 2.0 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Owl carousel 2.3.4 -->
+    <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#owl-demo").owlCarousel({
+                navigation: true, // Show next and prev buttons
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                items: 1,
+                itemsDesktop: false,
+                itemsDesktopSmall: false,
+                itemsTablet: false,
+                itemsMobile: false
+            });
+        });
+        'use strict';
+        $(document).ready(function() {
+            $(document).on('click', '#calculate-btn', function() {
+
+                let modal = $('#calculationModal');
+
+                $('.selectplan').text('');
+                $('.amount').text('');
+                let id = $('#plan').val();
+                let amount = $('#amount').val();
+                var url = "https://life-change-earn.com/investment/calculate/:id";
+                url = url.replace(':id', id);
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    data: {
+                        amount: amount,
+                        selectplan: id
+                    },
+                    success: (data) => {
+                        if (data.message) {
+                            iziToast.error({
+                                message: data.message + ' ' + Number(data.amount)
+                                    .toFixed(2),
+                                position: 'topRight',
+                            });
+
+                        } else {
+                            $('#profit').html(data);
+                            modal.modal('show');
+                        }
+
+
+                    },
+                    error: (error) => {
+                        if (typeof(error.responseJSON.errors.amount) !== "undefined") {
+                            iziToast.error({
+                                message: error.responseJSON.errors.amount,
+                                position: 'topRight',
+                            });
+                        }
+                        if (typeof(error.responseJSON.errors.selectplan) !== "undefined") {
+                            iziToast.error({
+                                message: error.responseJSON.errors.selectplan,
+                                position: 'topRight',
+                            });
+                        }
+                    }
+                })
+            });
+        });
+    </script>
+
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        // Add to Home with 2 seconds delay.
+        AddtoHome("2000", "once");
+
+        const customPush = (route) => {
+            window.history.pushState("", "", route);
+        }
+
+        //-- float-button --//
+        $('.action-button').on('click', function() {
+            $(this).toggleClass('active');
+            $('.float-btn').toggleClass('d-none');
+        })
+
+        //-- Notify --//
+        const notifyMsg = (msg, cls) => {
+            Swal.fire({
+                position: 'top-end',
+                icon: cls,
+                title: msg,
+                toast: true,
+                showConfirmButton: false,
+                timer: 2100
+            })
+        }
+
+        // redirect
+        const GoTo = (route) => {
+            window.location.href = route;
+        }
+
+        const BtnSPIN = `<div class="spinner-border spinner-border-sm" role="status"></div>`;
+    </script>
+    <!-- ========= Custom JS Files End =========  -->
+
+        <script>
+        // Home view
+        $(document).on('click', '.homeViewBtn', function(e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            $.ajax({
+                type: "GET",
+                url: "https://life-change-earn.com/ajax",
+                success: function(res) {
+                    // console.log(res);
+                    $('#appCapsule').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    customPush("https://life-change-earn.com") // url-change
+                },
+                error: function(err) {
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    let error = err.responseJSON;
+                    console.log(error);
+                }
+            });
+        });
+
+        // Home view
+        // $(document).on('click', '.homeViewBtn', function (e) {
+        //     e.preventDefault();
+        //     $('#preLoadCustom').removeClass('d-none'); // loader-on
+        //     setTimeout(() => {
+        //         GoTo("https://life-change-earn.com")
+        //     }, 500);
+        // });
+
+        // Login view
+        $(document).on('click', '.loginViewBtn', function(e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            setTimeout(() => {
+                GoTo("https://life-change-earn.com/login")
+            }, 500);
+        });
+
+        // user dashboard view
+        $(document).on('click', '.userDashboardBtn', function(e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            $.ajax({
+                type: "GET",
+                url: "https://life-change-earn.com/ajax-dashboard",
+                success: function(res) {
+                    // console.log(res);
+                    $('#appCapsule').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    customPush("https://life-change-earn.com/dashboard") // url-change
+                },
+                error: function(err) {
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    let error = err.responseJSON;
+                    console.log(error);
+                    if (error.message === "Unauthenticated.") {
+                        notifyMsg("You need to Login At first!", 'error');
+                        setTimeout(() => {
+                            GoTo("https://life-change-earn.com/login")
+                        }, 1000);
+                    } else {
+                        notifyMsg('Something went wrong!', 'error');
+                    }
+                }
+            });
+        });
+
+        // investment plan view
+        $(document).on('click', '.investmentPlanBtn', function(e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            $.ajax({
+                type: "GET",
+                url: "https://life-change-earn.com/ajax-investmentplan",
+                success: function(res) {
+                    // console.log(res);
+                    $('#appCapsule').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    customPush("https://life-change-earn.com/investmentplan") // url-change
+                },
+                error: function(err) {
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    let error = err.responseJSON;
+                    console.log(error);
+                    if (error.message === "Unauthenticated.") {
+                        notifyMsg("You need to Login At first!", 'error');
+                        setTimeout(() => {
+                            GoTo("https://life-change-earn.com/login")
+                        }, 1000);
+                    } else {
+                        notifyMsg('Something went wrong!', 'error');
+                    }
+                }
+            });
+        });
+
+        // invest all view
+        $(document).on('click', '.investAllBtn', function(e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            $.ajax({
+                type: "GET",
+                url: "https://life-change-earn.com/ajax-invest/all",
+                success: function(res) {
+                    // console.log(res);
+                    $('#appCapsule').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    customPush("https://life-change-earn.com/invest/all") // url-change
+                },
+                error: function(err) {
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    let error = err.responseJSON;
+                    console.log(error);
+                    if (error.message === "Unauthenticated.") {
+                        notifyMsg("You need to Login At first!", 'error');
+                        setTimeout(() => {
+                            GoTo("https://life-change-earn.com/login")
+                        }, 1000);
+                    } else {
+                        notifyMsg('Something went wrong!', 'error');
+                    }
+                }
+            });
+        });
+
+        // profile setting view
+        $(document).on('click', '.profileSettingBtn', function(e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            $.ajax({
+                type: "GET",
+                url: "https://life-change-earn.com/ajax-profile/setting",
+                success: function(res) {
+                    // console.log(res);
+                    $('#appCapsule').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    customPush("https://life-change-earn.com/profile/setting"); // url-change
+                },
+                error: function(err) {
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    let error = err.responseJSON;
+                    console.log(error);
+                    if (error.message === "Unauthenticated.") {
+                        notifyMsg("You need to Login At first!", 'error');
+                        setTimeout(() => {
+                            GoTo("https://life-change-earn.com/login")
+                        }, 1000);
+                    } else {
+                        notifyMsg('Something went wrong!', 'error');
+                    }
+                }
+            });
+        });
+
+        // address setting view
+        $(document).on('click', '.addressSettingBtn', function(e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            $.ajax({
+                type: "GET",
+                url: "https://life-change-earn.com/ajax-address/setting",
+                success: function(res) {
+                    // console.log(res);
+                    $('#appCapsule').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    customPush("https://life-change-earn.com/address/setting"); // url-change
+                },
+                error: function(err) {
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    let error = err.responseJSON;
+                    console.log(error);
+                    if (error.message === "Unauthenticated.") {
+                        notifyMsg("You need to Login At first!", 'error');
+                        setTimeout(() => {
+                            GoTo("https://life-change-earn.com/login")
+                        }, 1000);
+                    } else {
+                        notifyMsg('Something went wrong!', 'error');
+                    }
+                }
+            });
+        });
+
+        // password change view
+        $(document).on('click', '.passwordChangeBtn', function(e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            $.ajax({
+                type: "GET",
+                url: "https://life-change-earn.com/ajax-profile/change/password",
+                success: function(res) {
+                    // console.log(res);
+                    $('#appCapsule').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    customPush("https://life-change-earn.com/profile/change/password"); // url-change
+                },
+                error: function(err) {
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    let error = err.responseJSON;
+                    console.log(error);
+                    if (error.message === "Unauthenticated.") {
+                        notifyMsg("You need to Login At first!", 'error');
+                        setTimeout(() => {
+                            GoTo("https://life-change-earn.com/login")
+                        }, 1000);
+                    } else {
+                        notifyMsg('Something went wrong!', 'error');
+                    }
+                }
+            });
+        });
+
+        // reffer friend view
+        $(document).on('click', '.refferFriendBtn', function(e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            $.ajax({
+                type: "GET",
+                url: "https://life-change-earn.com/ajaxreffer-friend",
+                success: function(res) {
+                    // console.log(res);
+                    $('#appCapsule').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    customPush("https://life-change-earn.com/reffer-friend"); // url-change
+                },
+                error: function(err) {
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    let error = err.responseJSON;
+                    console.log(error);
+                    if (error.message === "Unauthenticated.") {
+                        notifyMsg("You need to Login At first!", 'error');
+                        setTimeout(() => {
+                            GoTo("https://life-change-earn.com/login")
+                        }, 1000);
+                    } else {
+                        notifyMsg('Something went wrong!', 'error');
+                    }
+                }
+            });
+        });
+
+        // deposit log view
+        $(document).on('click', '.depositLogBtn', function(e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            $.ajax({
+                type: "GET",
+                url: "https://life-change-earn.com/ajax-deposit/log",
+                success: function(res) {
+                    // console.log(res);
+                    $('#appCapsule').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    customPush("https://life-change-earn.com/deposit/log"); // url-change
+                },
+                error: function(err) {
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    let error = err.responseJSON;
+                    console.log(error);
+                    if (error.message === "Unauthenticated.") {
+                        notifyMsg("You need to Login At first!", 'error');
+                        setTimeout(() => {
+                            GoTo("https://life-change-earn.com/login")
+                        }, 1000);
+                    } else {
+                        notifyMsg('Something went wrong!', 'error');
+                    }
+                }
+            });
+        });
+
+        // withdraw log view
+        $(document).on('click', '.withdrawLogBtn', function(e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            $.ajax({
+                type: "GET",
+                url: "https://life-change-earn.com/ajax-withdraw/all",
+                success: function(res) {
+                    // console.log(res);
+                    $('#appCapsule').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    customPush("https://life-change-earn.com/withdraw/all"); // url-change
+                },
+                error: function(err) {
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    let error = err.responseJSON;
+                    console.log(error);
+                    if (error.message === "Unauthenticated.") {
+                        notifyMsg("You need to Login At first!", 'error');
+                        setTimeout(() => {
+                            GoTo("https://life-change-earn.com/login")
+                        }, 1000);
+                    } else {
+                        notifyMsg('Something went wrong!', 'error');
+                    }
+                }
+            });
+        });
+
+        // invest log view
+        $(document).on('click', '.investLogBtn', function(e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            $.ajax({
+                type: "GET",
+                url: "https://life-change-earn.com/ajax-invest/log",
+                success: function(res) {
+                    // console.log(res);
+                    $('#appCapsule').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    customPush("https://life-change-earn.com/invest/log"); // url-change
+                },
+                error: function(err) {
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    let error = err.responseJSON;
+                    console.log(error);
+                    if (error.message === "Unauthenticated.") {
+                        notifyMsg("You need to Login At first!", 'error');
+                        setTimeout(() => {
+                            GoTo("https://life-change-earn.com/login")
+                        }, 1000);
+                    } else {
+                        notifyMsg('Something went wrong!', 'error');
+                    }
+                }
+            });
+        });
+
+        // interest log view
+        $(document).on('click', '.interestLogBtn', function(e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            $.ajax({
+                type: "GET",
+                url: "https://life-change-earn.com/ajax-interest/log",
+                success: function(res) {
+                    // console.log(res);
+                    $('#appCapsule').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    customPush("https://life-change-earn.com/interest/log"); // url-change
+                },
+                error: function(err) {
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    let error = err.responseJSON;
+                    console.log(error);
+                    if (error.message === "Unauthenticated.") {
+                        notifyMsg("You need to Login At first!", 'error');
+                        setTimeout(() => {
+                            GoTo("https://life-change-earn.com/login")
+                        }, 1000);
+                    } else {
+                        notifyMsg('Something went wrong!', 'error');
+                    }
+                }
+            });
+        });
+
+        // transaction log view
+        $(document).on('click', '.transactionLogBtn', function(e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            $.ajax({
+                type: "GET",
+                url: "https://life-change-earn.com/ajax-transaction/log",
+                success: function(res) {
+                    // console.log(res);
+                    $('#appCapsule').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    customPush("https://life-change-earn.com/transaction/log"); // url-change
+                },
+                error: function(err) {
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    let error = err.responseJSON;
+                    console.log(error);
+                    if (error.message === "Unauthenticated.") {
+                        notifyMsg("You need to Login At first!", 'error');
+                        setTimeout(() => {
+                            GoTo("https://life-change-earn.com/login")
+                        }, 1000);
+                    } else {
+                        notifyMsg('Something went wrong!', 'error');
+                    }
+                }
+            });
+        });
+
+        // commision log view
+        $(document).on('click', '.commisionLogBtn', function(e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            $.ajax({
+                type: "GET",
+                url: "https://life-change-earn.com/ajax-commision",
+                success: function(res) {
+                    // console.log(res);
+                    $('#appCapsule').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    customPush("https://life-change-earn.com/commision"); // url-change
+                },
+                error: function(err) {
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    let error = err.responseJSON;
+                    console.log(error);
+                    if (error.message === "Unauthenticated.") {
+                        notifyMsg("You need to Login At first!", 'error');
+                        setTimeout(() => {
+                            GoTo("https://life-change-earn.com/login")
+                        }, 1000);
+                    } else {
+                        notifyMsg('Something went wrong!', 'error');
+                    }
+                }
+            });
+        });
+    </script>
+    <script>
+        //deposit-page-view-on deposit action
+        $(document).on('click', '.depositAction', function (e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            let modal = $('#depositAction')
+            $.ajax({
+                type: "GET",
+                url: "https://life-change-earn.com/ajax-deposit",
+                success: function (res) {
+                    $('#depositActionBody').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    modal.modal('show')
+                },
+                error: function (err) {
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    let error = err.responseJSON;
+                    console.log(error);
+                    if (error.message === "Unauthenticated.") {
+                        notifyMsg("You need to Login At first!", 'error');
+                        setTimeout(() => {
+                            GoTo("https://life-change-earn.com/login")
+                        }, 1000);
+                    }else {
+                        notifyMsg('Something went wrong!', 'error');
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).on('click', '.gatewayItem', function (e) {
+            e.preventDefault();
+            $('.gatewayItem').removeClass('gatewayActive');
+            $(this).addClass('gatewayActive');
+            let id = $(this).data('id');
+            let charge = $(this).data('charge');
+            let rate = $(this).data('rate');
+            let min_limit = $(this).data('min_limit');
+            let max_limit = $(this).data('max_limit');
+            let curr = $(this).data('curr');
+            let site_curr = "PKR";
+
+            $('#rateView').html(Number(rate).toFixed(2)+' '+curr);
+            $('#chargeView').html(Number(charge).toFixed(2)+' '+site_curr);
+            $('#minView').html(Number(min_limit).toFixed(2)+' '+site_curr);
+            $('#maxView').html(Number(max_limit).toFixed(2)+' '+site_curr);
+
+            $('#methodID').val(id);
+
+            $('#detailPreview').removeClass('d-none');
+
+            console.log(id+' '+charge+' '+rate+' '+curr);
+        });
+
+        //final page view on deposit action
+        $(document).on('submit', '#paynowForm', function (e) {
+            e.preventDefault();
+            $('#amountSubmitBtn').html(BtnSPIN);
+            let formData = new FormData($(this)[0]);
+            $.ajax({
+                type: "POST",
+                url: "https://life-change-earn.com/ajax-paynow",
+                data: formData,
+                dataType: "json",
+                contentType: false,
+                processData: false,
+                success: function (res) {
+                    console.log(res);
+                    if (res.cls == 'error') {
+                        notifyMsg(res.msg, res.cls);
+                        $('#amountSubmitBtn').html('Next Step');
+                    }
+                    $('#depositActionBody').html(res.data);
+                }
+            });
+
+        });
+
+        //menual-confirm-submit
+        $(document).on('submit', '#menualConfirmForm', function (e) {
+            e.preventDefault();
+            $('#menualConfirmFormSubmitBtn').html(BtnSPIN);
+            let formData = new FormData($(this)[0]);
+            $.ajax({
+                type: "POST",
+                url: "https://life-change-earn.com/gateways/confirm",
+                data: formData,
+                dataType: "json",
+                contentType: false,
+                processData: false,
+                success: function (res) {
+                    console.log(res);
+                    notifyMsg(res.msg, res.cls);
+                    $('#depositAction').modal('hide')
+                },
+                error: function (err) {
+                    let errors = err.responseJSON.errors;
+                    let notice = '';
+
+                    $.each(errors, function (index, val) {
+                        notice += val+'<br>'
+                    });
+                    setTimeout(() => {
+                        notifyMsg(notice, 'error');
+                        $('#menualConfirmFormSubmitBtn').html('Deposit Now');
+                    }, 1000);
+                }
+            });
+
+        });
+    </script>
+<script>
+    //deposit-page-view-on deposit action
+    $(document).on('click', '.withdrawAction', function (e) {
+        e.preventDefault();
+        $('#preLoadCustom').removeClass('d-none'); // loader-on
+        let modal = $('#withdrawAction')
+        $.ajax({
+            type: "GET",
+            url: "https://life-change-earn.com/ajax-withdraw",
+            success: function (res) {
+                $('#withdrawActionBody').html(res);
+                $('#preLoadCustom').addClass('d-none'); // loader-off
+                modal.modal('show')
+            },
+            error: function (err) {
+                $('#preLoadCustom').addClass('d-none'); // loader-off
+                let error = err.responseJSON;
+                console.log(error);
+                if (error.message === "Unauthenticated.") {
+                    notifyMsg("You need to Login At first!", 'error');
+                    setTimeout(() => {
+                        GoTo("https://life-change-earn.com/login")
+                    }, 1000);
+                }else {
+                    notifyMsg('Something went wrong!', 'error');
+                }
+            }
+        });
+    });
+
+    //withdraw-confirm-submit
+    $(document).on('submit', '#withdrawConfirmForm', function (e) {
+        e.preventDefault();
+        $('.withdrawBtn').attr('disabled', true);
+        $('.withdrawBtn').html("Loading...");
+        let formData = new FormData($(this)[0]);
+        $.ajax({
+            type: "POST",
+            url: "https://life-change-earn.com/ajax-withdraw-confirm",
+            data: formData,
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            success: function (res) {
+                console.log(res);
+                notifyMsg(res.msg, res.cls);
+                if (res.cls == 'success') {
+                    $('#withdrawAction').modal('hide')
+
+                }
+                $('.withdrawBtn').removeAttr('disabled');
+                $('.withdrawBtn').html("Withdraw Now");
+            }
+        });
+
+    });
+</script>
+
+<script>
+    $(function() {
+        'use strict'
+
+        $(document).on('change', 'select[name=method]', function() {
+            if ($(this).val() == '') {
+                $('.withdraw-ins').addClass('d-none');
+                $('.appendData').addClass('d-none');
+                $('.instruction').text('');
+                return;
+            }
+            $('.withdraw-ins').removeClass('d-none');
+            $('.appendData').removeClass('d-none');
+            getData($('select[name=method] option:selected').data('url'))
+        })
+
+        $(document).on('keyup', '.amount', function() {
+            let main_amount = $(this).val();
+
+            const withdraw_charge_type = $('.withdraw_charge_type').text();
+
+            if ($(this).val() == '') {
+                $('.final_amo').val(0);
+                $('.you_got').html(0);
+                return
+            }
+
+            const rate = $('.cur_rate').html();
+
+            $('.you_got').html(main_amount * rate);
+
+
+
+            const charge = $('.charge').val();
+
+            console.log('rate '+ rate);
+
+            if (withdraw_charge_type.localeCompare("percent") == 1) {
+                let percentAmount = (Number.parseFloat($(this).val())) + Number.parseFloat((charge * $(this).val()) / 100);
+
+                $('.final_amo').val((percentAmount).toFixed(2));
+                return
+            }
+            if (withdraw_charge_type.localeCompare("fixed") == 1) {
+
+                let totalAmount = (Number.parseFloat($(this).val())) + Number.parseFloat(charge);
+
+                $('.final_amo').val((totalAmount).toFixed(2));
+            }
+        })
+
+        function getData(url) {
+            $.ajax({
+                url: url,
+                method: "GET",
+                success: function(response) {
+
+                    let informations = JSON.parse(response.informations);
+                    let infos = '';
+                    $.each(informations, function (index, value) {
+                        infos += `
+                            <div class="col-md-12 mb-3">
+                                <label for="">${value} <span class="text-danger">*</span></label>
+                                <input type="text" name="info[${index}]" class="form-control form-control-sm rounded-pill" required>
+                            </div>
+                        `;
+                    });
+
+                    // console.log(infos);
+
+                    $('.instruction').html(response.withdraw_instruction)
+                    let html = `
+
+                            <div class="col-md-12 mb-3 mt-3">
+                                <label for="">Withdraw Amount <span class="text-danger">*</span></label>
+                                <input type="number" name="amount" class="form-control form-control-sm rounded-pill amount" required>
+                                <p class="text-small color-change mb-0 mt-1"><span>Min Amount &amp;   ${Number.parseFloat(response.min_amount).toFixed(2)}</span> <span>Max Amount ${Number.parseFloat(response.max_amount).toFixed(2)}</span></p>
+                            </div>
+
+                            <div class="p-1">
+                                <div class="row py-1 border-bottom">
+                                    <div class="col">
+                                        Charge:
+                                    </div>
+                                    <div class="col-auto">
+                                        <b>${Number.parseFloat(response.charge).toFixed(2)}</b> PKR
+                                    </div>
+                                </div>
+                                <div class="row py-1 border-bottom">
+                                    <div class="col">
+                                        Conversion Rate:
+                                    </div>
+                                    <div class="col-auto">
+                                        1 PKR = <b class="cur_rate">${Number.parseFloat(response.singel_rate).toFixed(2)}</b> ${response.singel_currency}
+                                    </div>
+                                </div>
+                                <div class="row py-1">
+                                    <div class="col">
+                                        You Got:
+                                    </div>
+                                    <div class="col-auto">
+                                        <b class="you_got">0.00</b> ${response.singel_currency}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mb-3" hidden>
+                                <label>Withdraw Charge</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control form-control-sm rounded-pill charge" value="${Number.parseFloat(response.charge).toFixed(2)}" required disabled>
+                                    <div class="input-group-text">
+                                        <span class="withdraw_charge_type">${response.charge_type}<span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <label for="">Cut From Your Wallet <span class="text-danger">*</span></label>
+                                <input type="text" name="final_amo" class="form-control form-control-sm rounded-pill final_amo" required readonly>
+                            </div>
+
+                            ${infos}
+
+                            <div class="col-md-12">
+                               <button class="btn !bg-gradient-to-b from-cyan-500 to-cyan-200 w-100 rounded-pill withdrawBtn" type="submit">Withdraw Now</button>
+                            </div>
+               `;
+
+                    $('.appendData').html(html);
+                }
+            })
+        }
+    })
+</script>
+
+<script>
+    $(document).on('click', '.withdrawMethod', function () {
+        let id = $(this).data("id");
+        let name = $(this).data("name");
+        $("#withdrawMethodSelect").val(id).trigger('change')
+        $("#withdrawMethodBox").addClass('d-none');
+        $("#withdrawMethodName").text("Withdraw with "+name);
+    });
+</script>
+
+    
+    
+        
+    
+    
+
+    
+
+    
+
+    
+
+    <script>
+        'use strict'
+        var url = "https://life-change-earn.com/changeLang";
+
+        $(".changeLang").change(function() {
+            if ($(this).val() == '') {
+                return false;
+            }
+            window.location.href = url + "?lang=" + $(this).val();
+        });
+
+        feather.replace();
+
+        // responsive menu slideing
+        $(".d-sidebar-menu>li>a").on("click", function() {
+            var element = $(this).parent("li");
+            if (element.hasClass("open")) {
+                element.removeClass("open");
+                element.find("li").removeClass("open");
+                element.find("ul").slideUp(500, "linear");
+            } else {
+                element.addClass("open");
+                element.children("ul").slideDown();
+                element.siblings("li").children("ul").slideUp();
+                element.siblings("li").removeClass("open");
+                element.siblings("li").find("li").removeClass("open");
+                element.siblings("li").find("ul").slideUp();
+            }
+        });
+
+        $('.sidebar-open-btn').on('click', function() {
+            $(this).toggleClass('active');
+            $('.d-sidebar').toggleClass('active');
+        });
+    </script>
+
+    <!-- Pull The Scripts -->
+    <div class="pullScript"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="HatX4bvAC81erelUEr6LrHEKGWSHjPiV52EbxYaW">
+    <title>Life Change Earn - Login Page</title>
+
+    <!-- External CSS -->
+    <!-- <link rel="stylesheet" href="cookie.css">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="animate.min.css">
+    <link rel="stylesheet" href="slick.css">
+    <link rel="stylesheet" href="font-awsome.min.css">
+    <link rel="stylesheet" href="iziToast.min.css">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="color.php?primary_color=2d8be5"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cookie.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slick.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awsome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/iziToast.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/color.css') }}"> -->
+
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0c718a 30%, #b5e6f9 100%), url("{{ url_for('static', filename='img/QULMdli.jpeg') }}") no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.22);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 1.25rem;
+            padding: 2.5rem 2rem 2rem 2rem;
+            max-width: 400px;
+            margin: 4rem auto 2rem auto;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .form-group label,
+        .input-wrapper h4 {
+            font-weight: 600;
+            color: #19577a !important;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            border-radius: 0.75rem !important;
+            border: 1px solid #46b3e6;
+            background-color: #f8fafc;
+            color: #0c819e !important;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: #2d8be5 !important;
+            box-shadow: 0 0 7px 1px #46b3e63a;
+            background-color: #fff;
+        }
+
+        .btn-primary,
+        .login-btn {
+            background: linear-gradient(90deg, #0c718a 60%, #00c6fb 100%) !important;
+            color: #fff;
+            border: none;
+            box-shadow: 0 2px 12px 0 #2d8be52a;
+            border-radius: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover,
+        .login-btn:hover {
+            background: linear-gradient(45deg, #80d0f7 60%, #2d8be5 100%) !important;
+            color: #fff;
+        }
+
+        .sign-up-btn {
+            background: linear-gradient(90deg, #565656 60%, #303030 100%) !important;
+            color: #fff;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .sign-up-btn:hover {
+            background: linear-gradient(90deg, #303030 60%, #565656 100%) !important;
+        }
+
+        .input-wrapper {
+            margin-bottom: 1.25rem;
+        }
+
+        .login-area img {
+            margin-bottom: 1.5rem;
+        }
+
+        .login-area h2 {
+            color: #2d8be5;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        /* Loader */
+        .custom_preload {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.65);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loaderCustom {
+            width: 48px;
+            height: 48px;
+        }
+
+        @media (max-width: 500px) {
+            .glass-panel {
+                padding: 1.25rem 0.75rem;
+                margin: 1.25rem auto;
+            }
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="text-capitalize">
+    <body>
+    <!-- FLASH MESSAGES - PUT THIS RIGHT AFTER BODY TAG -->
+    <div class="flash-messages-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    
+    <!-- Rest of your page content -->
+    <div class="appHeader">
+        ...
+    </div>
+
+    <!-- Preloader Ajax Start -->
+    <div id="preLoadCustom" class="d-none">
+        <div class="custom_preload">
+            <img class="loaderCustom" src="{{ url_for('static', filename='img/loading-ios.webp') }}" alt="">
+        </div>
+    </div>
+    <!-- Preloader Ajax End -->
+
+    <main>
+        <div class="container">
+            <div class="text-center mt-4">
+                <h2 class="text-cyan-600 font-bold text-3xl">Life Change Earn</h2>
+            </div>
+            <div class="glass-panel mt-4">
+                <div class="login-area">
+                    <div class="flex justify-center mb-3">
+                        <img width="100px" src="https://cdn-icons-png.flaticon.com/256/8662/8662591.png" alt="User Icon"
+                            class="rounded-full shadow">
+                    </div>
+                    <!-- //<form class="action-form loginForm" id="loginForm" action="" method="post" autocomplete="off"> -->
+                    <!-- Change the form to use Flask's url_for and add CSRF protection -->
+                    <form class="action-form loginForm" id="loginForm" action="{{ url_for('auth.login') }}"
+                        method="post" autocomplete="off">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <!-- rest of the form -->
+
+                        <input type="hidden" name="_token" value="HatX4bvAC81erelUEr6LrHEKGWSHjPiV52EbxYaW">
+                        <div class="form-group input-wrapper">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" placeholder="Enter username"
+                                class="form-control" required>
+                        </div>
+                        <div class="form-group input-wrapper">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" placeholder="Enter password"
+                                class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn login-btn w-100 mt-2 loginSubmitBtn">Login</button>
+                        <div class="flex gap-2 justify-center items-center mt-4">
+                            <span class="text-muted">Don't have an account?</span>
+                            <a class="text-cyan-600 font-semibold" href="/register">Sign Up</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JS Libraries -->
+    <!-- <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery.paroller.min.js"></script>
+    <script src="js/TweenMax.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/iziToast.min.js"></script>
+    <script src="js/jquery.uploadPreview.min.js"></script> -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/slick.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.paroller.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/TweenMax.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/iziToast.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.uploadPreview.min.js') }}"></script>
+
+    <!-- Sweet Alert 2.0 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- <script>
+        //-- Notify --//
+        const notifyMsg = (msg, cls) => {
+            Swal.fire({
+                position: 'top-end',
+                icon: cls,
+                title: msg,
+                toast: true,
+                showConfirmButton: false,
+                timer: 2100
+            })
+        }
+
+        const BtnSPIN = `<div class="spinner-border spinner-border-sm" role="status"></div>`;
+
+        // Ajax login
+        $(document).on('submit', '#loginForm', function (e) {
+            e.preventDefault();
+            $('.loginSubmitBtn').html(BtnSPIN).attr('disabled', true);
+            var formData = new FormData(this);
+            $.ajax({
+                type: "POST",
+                url: "/login",
+                 data: formData,
+                dataType: "json",
+                contentType: false,
+                processData: false,
+                success: function (res) {
+                    notifyMsg(res.msg, res.cls);
+                    $('.loginSubmitBtn').html('Login').attr('disabled', false);
+                    if (res.cls === 'success') {
+                        setTimeout(() => {
+                            window.location.href = "/dashboard";
+                        }, 1000);
+                    }
+                },
+                error: function (err) {
+                    $('.loginSubmitBtn').html('Login').attr('disabled', false);
+                    let errors = err.responseJSON && err.responseJSON.errors ? err.responseJSON.errors : {};
+                    let result = '';
+                    $.each(errors, function (index, value) {
+                        result += value + '<br>';
+                    });
+                    notifyMsg(result || 'Login failed. Please try again.', 'error');
+                }
+            });
+        });
+    </script> -->
+    <script>
+    //-- Notify --//
+    const notifyMsg = (msg, cls) => {
+        Swal.fire({
+            position: 'top-end',
+            icon: cls,
+            title: msg,
+            toast: true,
+            showConfirmButton: false,
+            timer: 2100
+        })
+    }
+
+    const BtnSPIN = `<div class="spinner-border spinner-border-sm" role="status"></div>`;
+
+    // Ajax login
+    $(document).on('submit', '#loginForm', function (e) {
+        e.preventDefault();
+        $('.loginSubmitBtn').html(BtnSPIN).attr('disabled', true);
+        var formData = new FormData(this);
+        
+        // Add CSRF token if using Flask-WTF
+        formData.append('csrf_token', '{{ csrf_token() }}');
+        
+        $.ajax({
+            type: "POST",
+            url: "{{ url_for('auth.login') }}",
+            data: formData,
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            success: function (res) {
+                $('.loginSubmitBtn').html('Login').attr('disabled', false);
+                
+                if (res.status === 'success') {
+                    notifyMsg(res.message, 'success');
+                    // Redirect after a short delay to show the success message
+                    setTimeout(() => {
+                        window.location.href = res.redirect || "/dashboard";
+                    }, 1000);
+                } else {
+                    notifyMsg(res.message, 'error');
+                }
+            },
+            error: function (err) {
+                $('.loginSubmitBtn').html('Login').attr('disabled', false);
+                let errors = err.responseJSON && err.responseJSON.errors ? err.responseJSON.errors : {};
+                let result = '';
+                $.each(errors, function (index, value) {
+                    result += value + '<br>';
+                });
+                notifyMsg(result || 'Login failed. Please try again.', 'error');
+            }
+        });
+    });
+</script>
+
+</body>
+
+</html>
